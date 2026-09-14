@@ -21,7 +21,7 @@ const modalWhatsapp = document.getElementById("modalWhatsapp");
 function waLink(productName = "un producto del catálogo") {
   const message = `Hola, JHONY HENAO. Estoy interesado en ${productName}. ¿Me pueden ayudar con disponibilidad, colores y envío?`;
   if (WHATSAPP.includes("X")) return "#contacto";
-  return `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;
+  return `https://api.whatsapp.com/send?phone=${WHATSAPP}&text=${encodeURIComponent(message)}`;
 }
 
 function renderProducts(){
