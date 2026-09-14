@@ -1,0 +1,68 @@
+const WHATSAPP = "57XXXXXXXXXX"; // Reemplazar por el número de WhatsApp de la tienda, con código de país y sin +
+
+const products = [
+  {id:1, name:"Tapa cola — Plata", price:70000, image:"assets/tapa-cola-plata.jpeg"},
+  {id:2, name:"Tapa cola — Verde", price:70000, image:"assets/tapa-cola-verde.jpeg"},
+  {id:3, name:"Tapa cola — Roja", price:70000, image:"assets/tapa-cola-roja.jpeg"},
+  {id:4, name:"Tapa cola — Azul", price:70000, image:"assets/tapa-cola-azul.jpeg"},
+  {id:5, name:"Tapa cola — Negra", price:70000, image:"assets/tapa-cola-negra.jpeg"},
+  {id:6, name:"Tapa cola — Gris", price:70000, image:"assets/tapa-cola-gris.jpeg"},
+  {id:7, name:"Tapa cola — Azul oscuro", price:70000, image:"assets/tapa-cola-azul-oscura.jpeg"},
+  {id:8, name:"Tapa cola — Blanca", price:70000, image:"assets/tapa-cola-blanca.jpeg"}
+];
+
+const money = n => new Intl.NumberFormat("es-CO").format(n);
+const modal = document.getElementById("productModal");
+const modalImage = document.getElementById("modalImage");
+const modalName = document.getElementById("modalName");
+const modalPrice = document.getElementById("modalPrice");
+const modalWhatsapp = document.getElementById("modalWhatsapp");
+
+function waLink(productName = "un producto del catálogo") {
+  const message = `Hola, JHONY HENAO. Estoy interesado en ${productName}. ¿Me pueden ayudar con disponibilidad, colores y envío?`;
+  if (WHATSAPP.includes("X")) return "#contacto";
+  return `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;
+}
+
+function renderProducts(){
+  const box = document.getElementById("products");
+  box.innerHTML = products.map((p,i)=>`
+    <article class="product" data-index="${i}">
+      <div class="product-image"><img src="${p.image}" alt="${p.name}" loading="lazy"><span class="tag">DISPONIBLE</span></div>
+      <div class="product-info">
+        <span class="product-type">TAPAS PARA MOTO</span>
+        <h3>${p.name}</h3>
+        <div class="product-bottom"><strong>$${money(p.price)}</strong><button type="button">VER PRODUCTO →</button></div>
+      </div>
+    </article>`).join("");
+
+  box.querySelectorAll(".product").forEach(card=>{
+    card.addEventListener("click",()=>openProduct(products[+card.dataset.index]));
+  });
+}
+
+function openProduct(p){
+  modalImage.src = p.image;
+  modalImage.alt = p.name;
+  modalName.textContent = p.name;
+  modalPrice.textContent = `$${money(p.price)} COP`;
+  modalWhatsapp.href = waLink(p.name);
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden","false");
+  document.body.classList.add("no-scroll");
+}
+function closeProduct(){
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden","true");
+  document.body.classList.remove("no-scroll");
+}
+
+document.getElementById("modalClose").onclick = closeProduct;
+document.getElementById("modalBack").onclick = closeProduct;
+document.getElementById("modalBackdrop").onclick = closeProduct;
+document.addEventListener("keydown", e=>{if(e.key === "Escape") closeProduct();});
+
+document.getElementById("mainWhatsapp").href = waLink();
+document.getElementById("floatWhatsapp").href = waLink();
+document.getElementById("year").textContent = new Date().getFullYear();
+renderProducts();
