@@ -1,4 +1,4 @@
-const WHATSAPP = "57XXXXXXXXXX"; // Reemplazar por el número de WhatsApp de la tienda, con código de país y sin +
+const WHATSAPP = "573016146491"; // WhatsApp de la tienda: código de país + número, sin +
 
 const products = [
   {id:1, name:"Tapa cola — Plata", price:70000, image:"tapa-cola-plata.jpeg"},
@@ -64,5 +64,7 @@ document.addEventListener("keydown", e=>{if(e.key === "Escape") closeProduct();}
 
 document.getElementById("mainWhatsapp").href = waLink();
 document.getElementById("floatWhatsapp").href = waLink();
+document.getElementById("headerWhatsapp").href = waLink();
+document.getElementById("heroWhatsapp").href = waLink();
 document.getElementById("year").textContent = new Date().getFullYear();
 renderProducts();
