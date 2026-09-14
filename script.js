@@ -1,14 +1,14 @@
 const WHATSAPP = "57XXXXXXXXXX"; // Reemplazar por el número de WhatsApp de la tienda, con código de país y sin +
 
 const products = [
-  {id:1, name:"Tapa cola — Plata", price:70000, image:"assets/tapa-cola-plata.jpeg"},
-  {id:2, name:"Tapa cola — Verde", price:70000, image:"assets/tapa-cola-verde.jpeg"},
-  {id:3, name:"Tapa cola — Roja", price:70000, image:"assets/tapa-cola-roja.jpeg"},
-  {id:4, name:"Tapa cola — Azul", price:70000, image:"assets/tapa-cola-azul.jpeg"},
-  {id:5, name:"Tapa cola — Negra", price:70000, image:"assets/tapa-cola-negra.jpeg"},
-  {id:6, name:"Tapa cola — Gris", price:70000, image:"assets/tapa-cola-gris.jpeg"},
-  {id:7, name:"Tapa cola — Azul oscuro", price:70000, image:"assets/tapa-cola-azul-oscura.jpeg"},
-  {id:8, name:"Tapa cola — Blanca", price:70000, image:"assets/tapa-cola-blanca.jpeg"}
+  {id:1, name:"Tapa cola — Plata", price:70000, image:"tapa-cola-plata.jpeg"},
+  {id:2, name:"Tapa cola — Verde", price:70000, image:"tapa-cola-verde.jpeg"},
+  {id:3, name:"Tapa cola — Roja", price:70000, image:"tapa-cola-roja.jpeg"},
+  {id:4, name:"Tapa cola — Azul", price:70000, image:"tapa-cola-azul.jpeg"},
+  {id:5, name:"Tapa cola — Negra", price:70000, image:"tapa-cola-negra.jpeg"},
+  {id:6, name:"Tapa cola — Gris", price:70000, image:"tapa-cola-gris.jpeg"},
+  {id:7, name:"Tapa cola — Azul oscuro", price:70000, image:"tapa-cola-azul-oscura.jpeg"},
+  {id:8, name:"Tapa cola — Blanca", price:70000, image:"tapa-cola-blanca.jpeg"}
 ];
 
 const money = n => new Intl.NumberFormat("es-CO").format(n);
