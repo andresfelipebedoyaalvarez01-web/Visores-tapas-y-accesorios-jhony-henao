@@ -39,25 +39,10 @@ function renderBrands(){
 
 function modelImageKey(model){
   const map={
-    "SZR 150":"https://http2.mlstatic.com/D_961997-MLM105274581923_012026-C.jpg",
-    "Libero":"https://images.carandbike.com/bike-images/large/yamaha/libero/yamaha-libero.jpg?v=4",
-    "XT 660":"https://images5.1000ps.net/images_bikekat/2016/4-Yamaha/1667-XT66R/gr.jpg",
-    "NMAX V1":"https://storage.googleapis.com/bm-garage-image-bucket/1657976291623-YAMAHA%20NMAX%20155%20V1.png",
-    "NMAX Connected V2":"https://m.alfascorpii.co.id/4D4M4L1K/assets/gambar_blog/berita_536_20230109103506.jpg",
-    "NMAX Connected V3":"https://http2.mlstatic.com/D_Q_NP_2X_835551-MCO106017521139_012026-E.webp",
-    "BWS FI":"https://www.fpmoto.com/pub/media/wysiwyg/Thomas/Motos/BWS_2021_Azul_Claro.jpg",
-    "Pulsar 180":"https://asset.autocarindia.com/static/models/colors/20260409_095623_97fd8fe3.webp",
-    "Pulsar 135":"https://ic4.maxabout.us/autos/tw_india/2/2016/12/2017-bajaj-pulsar-135-laser-black.jpg",
-    "NS 150":"https://d3bmp4azzreq60.cloudfront.net/fit-in/2000x2000/vendetunave/images/vehiculos/69252264d2691.jpeg",
-    "NS 160":"https://catalogoni.elverdugo.net/images/thumbs/0043705_motocicleta-bajaj-pulsar-ns-160-2022precio-no-incluye-gastos-de-inscripcion.jpeg",
-    "NS 200":"https://i5-mx.walmartimages.com/mg/gm/3pp/asr/8960f878-4569-470b-9246-3f5e77fb348e.4e272998987a230c0332186a70c8de10.jpeg?odnBg=FFFFFF&odnHeight=612&odnWidth=612",
-    "Boxer CT":"https://images.ctfassets.net/8zlbnewncp6f/qktVHm6UI254L4ozhDYYt/1ded214456d85392cd57534f8f1f8ee9/Bajaj_Boxer_CT100_KS_04.jpg",
-    "Discover 100":"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201510/1446127786_bajaj-discover-100_647_103015063010.jpg?VersionId=4hNm28GRdE.xDIPvJUuBJiOJ1TtxvJ2C&size=690%3A388",
-    "Discover 125":"https://www.motorbeam.com/wp-content/uploads/2015-Bajaj-Discover-1200x900.jpg",
-    "Discover 135":"https://image3.mouthshut.com/images/ImagesR/2016/5/925601937-2988792-1.jpg?rnd=10752",
-    "Discover ST":"https://kissu.com.ec/imagenes/productos/lg/16625012980.jpg"
+    "SZR 150":"moto-szr-150.svg","Libero":"moto-libero.svg","XT 660":"moto-xt-660.svg","NMAX V1":"moto-nmax-v1.svg","NMAX Connected V2":"moto-nmax-v2.svg","NMAX Connected V3":"moto-nmax-v3.svg","BWS FI":"moto-bws-fi.svg",
+    "Pulsar 180":"moto-pulsar-180.svg","Pulsar 135":"moto-pulsar-135.svg","NS 150":"moto-ns-150.svg","NS 160":"moto-ns-160.svg","NS 200":"moto-ns-200.svg","Boxer CT":"moto-boxer-ct.svg","Discover 100":"moto-discover-100.svg","Discover 125":"moto-discover-125.svg","Discover 135":"moto-discover-135.svg","Discover ST":"moto-discover-st.svg"
   };
-  return map[model] || '';
+  return map[model] || 'moto-generic.svg';
 }
 
 function selectBrand(name){
