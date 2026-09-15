@@ -36,9 +36,33 @@ function renderBrands(){
   $('#brandGrid').innerHTML=brands.map((b,i)=>`<button class="brand-card" data-brand="${b.name}"><img class="brand-logo" src="${b.logo}" alt="Logo ${b.name}"><strong>${b.name}</strong><small>Ver motos →</small></button>`).join('');
   $$('.brand-card').forEach(b=>b.onclick=()=>selectBrand(b.dataset.brand));
 }
+
+function modelImageKey(model){
+  const map={
+    "SZR 150":"https://http2.mlstatic.com/D_961997-MLM105274581923_012026-C.jpg",
+    "Libero":"https://images.carandbike.com/bike-images/large/yamaha/libero/yamaha-libero.jpg?v=4",
+    "XT 660":"https://images5.1000ps.net/images_bikekat/2016/4-Yamaha/1667-XT66R/gr.jpg",
+    "NMAX V1":"https://storage.googleapis.com/bm-garage-image-bucket/1657976291623-YAMAHA%20NMAX%20155%20V1.png",
+    "NMAX Connected V2":"https://m.alfascorpii.co.id/4D4M4L1K/assets/gambar_blog/berita_536_20230109103506.jpg",
+    "NMAX Connected V3":"https://http2.mlstatic.com/D_Q_NP_2X_835551-MCO106017521139_012026-E.webp",
+    "BWS FI":"https://www.fpmoto.com/pub/media/wysiwyg/Thomas/Motos/BWS_2021_Azul_Claro.jpg",
+    "Pulsar 180":"https://asset.autocarindia.com/static/models/colors/20260409_095623_97fd8fe3.webp",
+    "Pulsar 135":"https://ic4.maxabout.us/autos/tw_india/2/2016/12/2017-bajaj-pulsar-135-laser-black.jpg",
+    "NS 150":"https://d3bmp4azzreq60.cloudfront.net/fit-in/2000x2000/vendetunave/images/vehiculos/69252264d2691.jpeg",
+    "NS 160":"https://catalogoni.elverdugo.net/images/thumbs/0043705_motocicleta-bajaj-pulsar-ns-160-2022precio-no-incluye-gastos-de-inscripcion.jpeg",
+    "NS 200":"https://i5-mx.walmartimages.com/mg/gm/3pp/asr/8960f878-4569-470b-9246-3f5e77fb348e.4e272998987a230c0332186a70c8de10.jpeg?odnBg=FFFFFF&odnHeight=612&odnWidth=612",
+    "Boxer CT":"https://images.ctfassets.net/8zlbnewncp6f/qktVHm6UI254L4ozhDYYt/1ded214456d85392cd57534f8f1f8ee9/Bajaj_Boxer_CT100_KS_04.jpg",
+    "Discover 100":"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201510/1446127786_bajaj-discover-100_647_103015063010.jpg?VersionId=4hNm28GRdE.xDIPvJUuBJiOJ1TtxvJ2C&size=690%3A388",
+    "Discover 125":"https://www.motorbeam.com/wp-content/uploads/2015-Bajaj-Discover-1200x900.jpg",
+    "Discover 135":"https://image3.mouthshut.com/images/ImagesR/2016/5/925601937-2988792-1.jpg?rnd=10752",
+    "Discover ST":"https://kissu.com.ec/imagenes/productos/lg/16625012980.jpg"
+  };
+  return map[model] || '';
+}
+
 function selectBrand(name){
   selectedBrand=name; const b=brands.find(x=>x.name===name);
-  $('#selectedBrandLabel').textContent=name.toUpperCase(); $('#modelGrid').innerHTML=b.models.map(m=>`<button class="model-card" data-model="${m}"><span class="model-placeholder">🏍</span><span><b>${m}</b><small>${products.some(p=>p.brands.includes(name)&&p.models.includes(m))?'Productos disponibles':'Consultar disponibilidad'}</small></span><i>›</i></button>`).join('');
+  $('#selectedBrandLabel').textContent=name.toUpperCase(); $('#modelGrid').innerHTML=b.models.map(m=>{const key=modelImageKey(m); return `<button class="model-card" data-model="${m}"><span class="model-placeholder"><img src="${key}" alt="Moto ${m}" loading="lazy"></span><span><b>${m}</b><small>${products.some(p=>p.brands.includes(name)&&p.models.includes(m))?'Productos disponibles':'Consultar disponibilidad'}</small></span><i>›</i></button>`}).join('');
   $('#modelSection').classList.remove('hidden'); $('#motoSection').classList.add('hidden'); document.getElementById('modelSection').scrollIntoView({behavior:'smooth',block:'start'});
   $$('.model-card').forEach(x=>x.onclick=()=>selectModel(x.dataset.model));
 }

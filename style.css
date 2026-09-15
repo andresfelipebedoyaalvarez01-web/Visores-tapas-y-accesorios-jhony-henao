@@ -6,3 +6,20 @@
 .header-wa{display:inline-flex;align-items:center;gap:7px}.header-wa img,.wa-icon{width:20px;height:20px;display:inline-block}.btn.wa{display:inline-flex;align-items:center}.brand-logo{width:150px;height:68px;object-fit:contain;margin-bottom:8px}.brand-card{padding:12px}.brand-card small{margin-top:4px}.visor-feature-card{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:linear-gradient(110deg,#08121c,#07101a);display:grid;grid-template-columns:1.2fr .8fr;min-height:330px}.visor-feature-card>div:first-child{padding:48px}.visor-feature-card h2{font-size:clamp(30px,4vw,48px);margin-bottom:12px}.visor-feature-card p{color:var(--muted);line-height:1.8;font-size:13px;max-width:620px}.visor-art{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 45%,#12304a,#05090e 70%);border-left:1px solid var(--line)}.visor-art b{font-size:28px;color:#fff;letter-spacing:.08em;margin-top:12px}.visor-art small{color:#6fbaf0;margin-top:5px}.visor-shape{width:240px;height:135px;border:10px solid #1697ff;border-top-left-radius:125px 80px;border-top-right-radius:125px 80px;border-bottom-left-radius:40px;border-bottom-right-radius:40px;transform:perspective(300px) rotateX(12deg);box-shadow:0 0 35px rgba(22,151,255,.2)}
 @media(max-width:900px){.header-wa{display:inline-flex}.visor-feature-card{grid-template-columns:1fr}.visor-art{min-height:220px;border-left:0;border-top:1px solid var(--line)}.visor-feature-card>div:first-child{padding:28px}}
 @media(max-width:560px){.header-wa{display:none}.visor-feature-card>div:first-child{padding:24px}.visor-shape{width:190px;height:110px}}
+
+/* Ajuste visual de las referencias de moto: solo añade la imagen, sin cambiar la estructura. */
+.model-placeholder{overflow:hidden;padding:0;background:#eef0f2}
+.model-placeholder img{width:100%;height:100%;object-fit:contain;display:block}
+
+/* Modal de producto: imagen perfectamente centrada y separada de la descripción. */
+.modal{overflow:auto}
+.modal-card{max-height:calc(100vh - 36px);overflow:hidden}
+.modal-media{min-width:0;min-height:420px;height:420px;overflow:hidden}
+.modal-media img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;object-position:center center}
+@media(max-width:900px){
+  .modal{padding:10px}
+  .modal-card{width:100%;max-height:calc(100vh - 20px);overflow-y:auto;display:grid}
+  .modal-media{height:min(42vh,320px);min-height:220px;max-height:none;overflow:hidden}
+  .modal-media img{width:100%;height:100%;object-fit:contain;object-position:center}
+  .modal-info{padding:22px}
+}
