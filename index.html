@@ -2,10 +2,10 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#05070b">
-<meta name="description" content="Visores, tapas y accesorios para motos. JHONY HENAO.">
-<title>VISores, Tapas y Accesorios | JHONY HENAO</title>
+<meta name="description" content="JHONY HENAO — Visores, tapas, soportes y accesorios para motos.">
+<title>JHONY HENAO | Visores, Tapas y Accesorios</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -13,104 +13,96 @@
 </head>
 <body>
 <header class="site-header">
-  <a class="brand" href="#inicio"><img src="logo.png" alt="Visores, Tapas y Accesorios JHONY HENAO"></a>
-  <nav>
-    <a class="active" href="#inicio">INICIO</a>
-    <a href="#productos">PRODUCTOS</a>
-    <a href="#nosotros">NOSOTROS</a>
-    <a href="#ubicacion">UBICACIÓN</a>
-    <a href="#contacto">CONTACTO</a>
+  <a class="brand" href="#inicio"><img src="logo.png" alt="JHONY HENAO"></a>
+  <nav class="desktop-nav">
+    <a href="#inicio">INICIO</a><a href="#motos">MOTOS</a><a href="#buscar">BUSCAR</a><a href="#contacto">CONTACTO</a>
   </nav>
-  <a class="header-wa" id="headerWhatsapp" href="https://api.whatsapp.com/send?phone=573016146491&text=Hola%2C%20JHONY%20HENAO.%20Estoy%20interesado%20en%20sus%20productos%20para%20moto.%20%C2%BFMe%20pueden%20ayudar%20con%20disponibilidad%2C%20colores%20y%20env%C3%ADo%3F" target="_blank" rel="noopener">WHATSAPP</a>
+  <div class="header-actions">
+    <button class="icon-btn search-toggle" aria-label="Buscar">⌕</button>
+    <a class="header-wa" href="https://api.whatsapp.com/send?phone=573016146491&text=Hola%2C%20JHONY%20HENAO.%20Quiero%20informaci%C3%B3n%20sobre%20un%20producto%20para%20mi%20moto." target="_blank" rel="noopener">WHATSAPP</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
+  </div>
 </header>
 
-<main>
-<section class="hero" id="inicio">
-  <div class="hero-bg"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#inicio">Inicio</a><a href="#motos">Motos</a><a href="#buscar">Buscar</a><a href="#contacto">Contacto</a>
+</div>
+
+<main id="inicio">
+<section class="hero">
+  <div class="hero-overlay"></div>
   <div class="hero-copy">
-    <span class="eyebrow">VISores • TAPAS • ACCESORIOS</span>
-    <h1>TODO PARA<br><span>VESTIR TU MOTO</span></h1>
-    <p>Encuentra tapas, visores y accesorios para darle a tu moto el estilo que buscas. Atención directa y asesoría para ayudarte a elegir.</p>
+    <span class="eyebrow">VISORES • TAPAS • SOPORTES • ACCESORIOS</span>
+    <h1>REPUESTOS Y ACCESORIOS<br><span>PARA TU MOTO</span></h1>
+    <p>Encuentra fácilmente los repuestos y accesorios para tu modelo. Busca por moto, referencia o producto.</p>
     <div class="hero-actions">
-      <a class="btn primary" href="#productos">VER PRODUCTOS <b>→</b></a>
-      <a class="btn outline" id="heroWhatsapp" href="https://api.whatsapp.com/send?phone=573016146491&text=Hola%2C%20JHONY%20HENAO.%20Estoy%20interesado%20en%20sus%20productos%20para%20moto.%20%C2%BFMe%20pueden%20ayudar%20con%20disponibilidad%2C%20colores%20y%20env%C3%ADo%3F" target="_blank" rel="noopener">HABLAR CON NOSOTROS</a>
-    </div>
-    <div class="trust-row">
-      <span>✓ Atención personalizada</span>
-      <span>✓ Envíos disponibles</span>
-      <span>✓ Venta virtual y presencial</span>
+      <a class="btn primary" href="#motos">ELEGIR MI MOTO <b>→</b></a>
+      <a class="btn outline" href="#buscar">BUSCAR PRODUCTO <b>⌕</b></a>
     </div>
   </div>
-  <div class="hero-logo-card"><img src="logo.png" alt="JHONY HENAO"></div>
 </section>
 
-<section class="quick-info">
-  <div><strong>🏍️ ACCESORIOS</strong><span>Para diferentes referencias de moto</span></div>
-  <div><strong>📲 ATENCIÓN DIRECTA</strong><span>Pregunta por disponibilidad y colores</span></div>
-  <div><strong>📦 VENTA VIRTUAL</strong><span>Compra desde cualquier lugar</span></div>
-  <div><strong>📍 PUNTO FÍSICO</strong><span>Medellín, Antioquia</span></div>
+<section class="trust-row">
+  <div><span>♢</span><strong>CALIDAD</strong><small>Productos seleccionados</small></div>
+  <div><span>▣</span><strong>ENVÍOS</strong><small>A todo el país</small></div>
+  <div><span>▢</span><strong>COMPRA SEGURA</strong><small>Atención directa</small></div>
 </section>
 
-<section class="products-section" id="productos">
-  <div class="section-heading">
-    <span class="eyebrow">CATÁLOGO</span>
-    <h2>PRODUCTOS DESTACADOS</h2>
-    <p>Tapas cola disponibles en diferentes colores. <b>Precio: $70.000</b></p>
+<section class="search-section" id="buscar">
+  <div class="search-wrap">
+    <span class="search-icon">⌕</span>
+    <input id="searchInput" type="search" placeholder="¿Qué estás buscando?  Busca por moto, referencia o producto..." autocomplete="off">
+    <button id="clearSearch" aria-label="Limpiar búsqueda">×</button>
+  </div>
+  <div class="search-hint">Ejemplos: <button data-search="SZR 150">SZR 150</button><button data-search="tapa cola">tapa cola</button><button data-search="cachos">cachos</button></div>
+</section>
+
+<section class="section" id="motos">
+  <div class="section-head"><div><span class="eyebrow">ENCUENTRA TU MOTO</span><h2>ELIGE LA MARCA</h2></div><button class="text-link" id="allBrands">Ver todas →</button></div>
+  <div class="brand-grid" id="brandGrid"></div>
+</section>
+
+<section class="section model-section hidden" id="modelSection">
+  <div class="section-head"><div><button class="back-link" id="backBrands">← Marcas</button><span class="eyebrow" id="selectedBrandLabel">MARCA</span><h2>ELIGE EL MODELO</h2></div></div>
+  <div class="model-grid" id="modelGrid"></div>
+</section>
+
+<section class="section moto-section hidden" id="motoSection">
+  <div class="moto-banner">
+    <div><button class="back-link" id="backModels">← Modelos</button><span class="eyebrow" id="motoBrand">YAMAHA</span><h2 id="motoTitle">SZR 150</h2><p>Repuestos y accesorios disponibles para esta referencia.</p></div>
+    <button class="btn primary" id="showMotoProducts">VER TODOS LOS PRODUCTOS →</button>
+  </div>
+  <div class="category-grid" id="categoryGrid"></div>
+</section>
+
+<section class="section products-section" id="catalogo">
+  <div class="section-head"><div><span class="eyebrow">CATÁLOGO</span><h2 id="productsTitle">PRODUCTOS DESTACADOS</h2><p id="productsSub">Explora nuestras piezas y accesorios disponibles.</p></div><button class="text-link" id="showAllProducts">Ver todos →</button></div>
+  <div class="filter-row" id="filterRow">
+    <button class="filter active" data-cat="Todas">Todas</button><button class="filter" data-cat="Tapas">Tapas</button><button class="filter" data-cat="Visores">Visores</button><button class="filter" data-cat="Soportes">Soportes</button><button class="filter" data-cat="Accesorios">Accesorios</button>
   </div>
   <div class="products" id="products"></div>
+  <div class="empty-state hidden" id="emptyState"><strong>No encontramos esa pieza.</strong><span>Escríbenos por WhatsApp y te ayudamos a encontrarla.</span><a class="btn primary" href="https://api.whatsapp.com/send?phone=573016146491&text=Hola%2C%20JHONY%20HENAO.%20No%20encuentro%20la%20pieza%20que%20busco.%20%C2%BFMe%20pueden%20ayudar%3F" target="_blank" rel="noopener">PREGUNTAR POR WHATSAPP</a></div>
 </section>
 
-<section class="about" id="nosotros">
-  <div class="about-image"><img src="logo.png" alt="JHONY HENAO"></div>
-  <div class="about-copy">
-    <span class="eyebrow">SOBRE NOSOTROS</span>
-    <h2>VISores, TAPAS Y ACCESORIOS<br><span>PARA TU MOTO</span></h2>
-    <p>Somos una tienda dedicada a la venta de accesorios y partes estéticas para motos. Trabajamos con diferentes referencias y colores para que puedas encontrar la pieza que necesitas para renovar o personalizar tu moto.</p>
-    <p>Te atendemos de forma virtual y también contamos con punto físico. Si no estás seguro de qué producto necesitas, escríbenos y te ayudamos a identificarlo antes de comprar.</p>
-    <a class="btn primary" href="#contacto">QUIERO ASESORÍA <b>→</b></a>
-  </div>
+<section class="section about" id="nosotros">
+  <div class="about-card"><img src="logo.png" alt="JHONY HENAO"></div>
+  <div><span class="eyebrow">JHONY HENAO</span><h2>TU MOTO,<br><span>NUESTRA PASIÓN</span></h2><p>Somos una tienda de visores, tapas, soportes y accesorios para motos. Organizamos el catálogo por marca, modelo y categoría para que encuentres la pieza que necesitas sin perder tiempo.</p><p>¿No sabes exactamente cuál es? Envíanos una foto o escríbenos la referencia de tu moto y te asesoramos.</p><a class="btn primary" href="https://api.whatsapp.com/send?phone=573016146491&text=Hola%2C%20JHONY%20HENAO.%20Necesito%20asesor%C3%ADa%20para%20encontrar%20un%20repuesto%20para%20mi%20moto." target="_blank" rel="noopener">QUIERO ASESORÍA →</a></div>
 </section>
 
-<section class="services">
-  <div class="section-heading"><span class="eyebrow">¿QUÉ HACEMOS?</span><h2>TE AYUDAMOS A ENCONTRAR LO QUE NECESITAS</h2></div>
-  <div class="service-grid">
-    <article><span>01</span><h3>VENTA DE TAPAS</h3><p>Tapas y piezas estéticas para diferentes referencias de motos.</p></article>
-    <article><span>02</span><h3>VISORES Y ACCESORIOS</h3><p>Opciones para darle un cambio de estilo a tu moto.</p></article>
-    <article><span>03</span><h3>ASESORÍA</h3><p>Te orientamos por WhatsApp para revisar referencia, color y disponibilidad.</p></article>
-    <article><span>04</span><h3>VENTA VIRTUAL Y FÍSICA</h3><p>Compra de manera virtual o visítanos en nuestro punto físico.</p></article>
-  </div>
-</section>
-
-<section class="location" id="ubicacion">
-  <div class="location-card">
-    <div><span class="eyebrow">ENCUÉNTRANOS</span><h2>VENTA VIRTUAL<br><span>Y PUNTO FÍSICO</span></h2><p><strong>Ciudad:</strong> Medellín, Antioquia</p><p><strong>Dirección:</strong> Dirección por confirmar</p><p><strong>Horario:</strong> Horario por confirmar</p><p class="small">Antes de desplazarte, escríbenos por WhatsApp para confirmar horario, disponibilidad y atención.</p></div>
-    <div class="map-placeholder"><div>📍</div><strong>JHONY HENAO</strong><span>Visores, tapas y accesorios</span><a href="#contacto">SOLICITAR UBICACIÓN</a></div>
-  </div>
-</section>
-
-<section class="contact" id="contacto">
-  <span class="eyebrow">CONTACTO</span>
-  <h2>¿BUSCAS UNA TAPA O ACCESORIO?</h2>
-  <p>Envíanos una foto de tu moto o dinos la referencia y te ayudamos a revisar qué tenemos disponible.</p>
-  <div class="contact-actions">
-    <a class="btn primary big" id="mainWhatsapp" href="https://api.whatsapp.com/send?phone=573016146491&text=Hola%2C%20JHONY%20HENAO.%20Estoy%20interesado%20en%20sus%20productos%20para%20moto.%20%C2%BFMe%20pueden%20ayudar%20con%20disponibilidad%2C%20colores%20y%20env%C3%ADo%3F" target="_blank" rel="noopener">HABLAR POR WHATSAPP <b>↗</b></a>
-    <a class="btn outline big" href="#productos">VER CATÁLOGO</a>
-  </div>
-  <p class="contact-note">WhatsApp: +57 301 614 6491 · Atención directa para pedidos, referencias, colores y disponibilidad.</p>
+<section class="section location" id="contacto">
+  <div><span class="eyebrow">ATENCIÓN</span><h2>¿NO ENCUENTRAS<br>LO QUE BUSCAS?</h2><p>Escríbenos y dinos la marca, modelo y referencia de tu moto. Te ayudamos a encontrar la pieza.</p><a class="btn wa" href="https://api.whatsapp.com/send?phone=573016146491&text=Hola%2C%20JHONY%20HENAO.%20Quiero%20consultar%20por%20un%20repuesto%20para%20mi%20moto." target="_blank" rel="noopener">WHATSAPP</a></div>
+  <div class="contact-info"><div><b>VENTA</b><span>Virtual y presencial</span></div><div><b>HORARIO</b><span>Consulta disponibilidad por WhatsApp</span></div><div><b>PUNTO FÍSICO</b><span>Medellín, Antioquia</span></div></div>
 </section>
 </main>
 
+<footer><img src="logo.png" alt="JHONY HENAO"><div class="socials"><a href="https://wa.me/573016146491" target="_blank">WhatsApp</a><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">TikTok</a></div><p>© <span id="year"></span> JHONY HENAO · Visores, Tapas y Accesorios</p></footer>
+
+<a class="float-wa" href="https://api.whatsapp.com/send?phone=573016146491&text=Hola%2C%20JHONY%20HENAO.%20Necesito%20ayuda%20con%20un%20producto%20para%20mi%20moto." target="_blank" rel="noopener" aria-label="WhatsApp">◉<span>¡Hablemos por WhatsApp!</span></a>
+
 <div class="modal" id="productModal" aria-hidden="true">
   <div class="modal-backdrop" id="modalBackdrop"></div>
-  <div class="modal-card">
-    <button class="modal-close" id="modalClose" aria-label="Cerrar">×</button>
-    <div class="modal-photo"><img id="modalImage" src="" alt=""></div>
-    <div class="modal-info"><span class="eyebrow">PRODUCTO</span><h2 id="modalName"></h2><div class="price" id="modalPrice"></div><p>Producto disponible en el color mostrado. Confirma disponibilidad antes de realizar el pedido.</p><a class="btn primary" id="modalWhatsapp" target="_blank" rel="noopener">PEDIR POR WHATSAPP ↗</a><button class="back" id="modalBack">VOLVER AL CATÁLOGO</button></div>
-  </div>
+  <div class="modal-card"><button class="modal-close" id="modalClose">×</button><div class="modal-media"><img id="modalImage" src="" alt=""></div><div class="modal-info"><span class="eyebrow" id="modalCategory">PRODUCTO</span><h2 id="modalName"></h2><strong id="modalPrice"></strong><p id="modalCompatibility"></p><div class="modal-tags" id="modalTags"></div><a class="btn wa full" id="modalWhatsapp" target="_blank" rel="noopener">CONSULTAR POR WHATSAPP</a></div></div>
 </div>
-
-<a class="floating-wa" id="floatWhatsapp" href="https://api.whatsapp.com/send?phone=573016146491&text=Hola%2C%20JHONY%20HENAO.%20Estoy%20interesado%20en%20sus%20productos%20para%20moto.%20%C2%BFMe%20pueden%20ayudar%20con%20disponibilidad%2C%20colores%20y%20env%C3%ADo%3F" target="_blank" rel="noopener" aria-label="Abrir WhatsApp">💬</a>
-<footer><img src="logo.png" alt="JHONY HENAO"><p>© <span id="year"></span> Visores, Tapas y Accesorios JHONY HENAO · Medellín, Colombia</p></footer>
 <script src="script.js"></script>
 </body>
 </html>

@@ -1,72 +1,88 @@
-const WHATSAPP = "573016146491"; // WhatsApp de la tienda: código de país + número, sin +
+const WHATSAPP = "573016146491";
+const wa = (text) => `https://api.whatsapp.com/send?phone=${WHATSAPP}&text=${encodeURIComponent(text)}`;
 
 const products = [
-  {id:1, name:"Tapa cola — Plata", price:70000, image:"tapa-cola-plata.jpeg"},
-  {id:2, name:"Tapa cola — Verde", price:70000, image:"tapa-cola-verde.jpeg"},
-  {id:3, name:"Tapa cola — Roja", price:70000, image:"tapa-cola-roja.jpeg"},
-  {id:4, name:"Tapa cola — Azul", price:70000, image:"tapa-cola-azul.jpeg"},
-  {id:5, name:"Tapa cola — Negra", price:70000, image:"tapa-cola-negra.jpeg"},
-  {id:6, name:"Tapa cola — Gris", price:70000, image:"tapa-cola-gris.jpeg"},
-  {id:7, name:"Tapa cola — Azul oscuro", price:70000, image:"tapa-cola-azul-oscura.jpeg"},
-  {id:8, name:"Tapa cola — Blanca", price:70000, image:"tapa-cola-blanca.jpeg"},
-  {id:9, name:"Cachos soporte parrilla SZR 150 — Blanco", price:100000, image:"cachos-szr-150-blanco.jpeg"},
-  {id:10, name:"Cachos soporte parrilla SZR 150 — Negro", price:100000, image:"cachos-szr-150-negro.jpeg"}
+  {id:1,name:"Tapa cola",variant:"Plata",price:70000,image:"tapa-cola-plata.jpeg",category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapa cola","plata","szr 150"]},
+  {id:2,name:"Tapa cola",variant:"Verde",price:70000,image:"tapa-cola-verde.jpeg",category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapa cola","verde","szr 150"]},
+  {id:3,name:"Tapa cola",variant:"Roja",price:70000,image:"tapa-cola-roja.jpeg",category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapa cola","roja","szr 150"]},
+  {id:4,name:"Tapa cola",variant:"Azul",price:70000,image:"tapa-cola-azul.jpeg",category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapa cola","azul","szr 150"]},
+  {id:5,name:"Tapa cola",variant:"Negra",price:70000,image:"tapa-cola-negra.jpeg",category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapa cola","negra","szr 150"]},
+  {id:6,name:"Tapa cola",variant:"Gris",price:70000,image:"tapa-cola-gris.jpeg",category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapa cola","gris","szr 150"]},
+  {id:7,name:"Tapa cola",variant:"Azul oscuro",price:70000,image:"tapa-cola-azul-oscura.jpeg",category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapa cola","azul oscuro","szr 150"]},
+  {id:8,name:"Tapa cola",variant:"Blanca",price:70000,image:"tapa-cola-blanca.jpeg",category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapa cola","blanca","szr 150"]},
+  {id:9,name:"Cachos soporte parrilla",variant:"Blanco",price:100000,image:"cachos-szr-150-blanco.jpeg",category:"Soportes",brands:["Yamaha"],models:["SZR 150"],tags:["cachos","soporte parrilla","blanco","szr 150"]},
+  {id:10,name:"Cachos soporte parrilla",variant:"Negro",price:100000,image:"cachos-szr-150-negro.jpeg",category:"Soportes",brands:["Yamaha"],models:["SZR 150"],tags:["cachos","soporte parrilla","negro","szr 150"]}
 ];
 
-const money = n => new Intl.NumberFormat("es-CO").format(n);
-const modal = document.getElementById("productModal");
-const modalImage = document.getElementById("modalImage");
-const modalName = document.getElementById("modalName");
-const modalPrice = document.getElementById("modalPrice");
-const modalWhatsapp = document.getElementById("modalWhatsapp");
+const brands = [
+  {name:"Yamaha",mark:"Y",models:["NMAX","SZR 150","FZ 150","XTZ 125","MT 15","R3"]},
+  {name:"Honda",mark:"H",models:["CB 190R","XR 150","XRE 300"]},
+  {name:"AKT",mark:"A",models:["NKD","TTR","Dynamic"]},
+  {name:"Bajaj",mark:"B",models:["Pulsar NS","Dominar","Boxer"]},
+  {name:"Suzuki",mark:"S",models:["Gixxer","DR 150","GSX"]},
+  {name:"TVS",mark:"T",models:["Apache","Raider","Sport"]},
+  {name:"Kawasaki",mark:"K",models:["Ninja","Z 250","Versys"]},
+  {name:"CFMoto",mark:"C",models:["300NK","300SR","450SR"]}
+];
 
-function waLink(productName = "un producto del catálogo") {
-  const message = `Hola, JHONY HENAO. Estoy interesado en ${productName}. ¿Me pueden ayudar con disponibilidad, colores y envío?`;
-  if (WHATSAPP.includes("X")) return "#contacto";
-  return `https://api.whatsapp.com/send?phone=${WHATSAPP}&text=${encodeURIComponent(message)}`;
+const categories = [
+  ["Tapas","Piezas para renovar o reemplazar tu moto","◈"],
+  ["Visores","Visores y piezas para el frente","◇"],
+  ["Soportes","Soportes, cachos y parrillas","⌁"],
+  ["Accesorios","Complementos para tu moto","✦"],
+  ["Tornillería","Herrajes y fijaciones","⊙"],
+  ["Repuestos varios","Consulta por la pieza que buscas","⚙"]
+];
+
+const money=n=>new Intl.NumberFormat('es-CO').format(n);
+let selectedBrand=null, selectedModel=null, activeCategory='Todas', currentProducts=products;
+const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
+
+function renderBrands(){
+  $('#brandGrid').innerHTML=brands.map((b,i)=>`<button class="brand-card" data-brand="${b.name}"><span class="brand-mark">${b.mark}</span><strong>${b.name}</strong><small>Ver motos →</small></button>`).join('');
+  $$('.brand-card').forEach(b=>b.onclick=()=>selectBrand(b.dataset.brand));
 }
-
-function renderProducts(){
-  const box = document.getElementById("products");
-  box.innerHTML = products.map((p,i)=>`
-    <article class="product" data-index="${i}">
-      <div class="product-image"><img src="${p.image}" alt="${p.name}" loading="lazy"><span class="tag">DISPONIBLE</span></div>
-      <div class="product-info">
-        <span class="product-type">TAPAS PARA MOTO</span>
-        <h3>${p.name}</h3>
-        <div class="product-bottom"><strong>$${money(p.price)}</strong><button type="button">VER PRODUCTO →</button></div>
-      </div>
-    </article>`).join("");
-
-  box.querySelectorAll(".product").forEach(card=>{
-    card.addEventListener("click",()=>openProduct(products[+card.dataset.index]));
-  });
+function selectBrand(name){
+  selectedBrand=name; const b=brands.find(x=>x.name===name);
+  $('#selectedBrandLabel').textContent=name.toUpperCase(); $('#modelGrid').innerHTML=b.models.map(m=>`<button class="model-card" data-model="${m}"><span class="model-placeholder">🏍</span><span><b>${m}</b><small>${products.some(p=>p.brands.includes(name)&&p.models.includes(m))?'Productos disponibles':'Consultar disponibilidad'}</small></span><i>›</i></button>`).join('');
+  $('#modelSection').classList.remove('hidden'); $('#motoSection').classList.add('hidden'); document.getElementById('modelSection').scrollIntoView({behavior:'smooth',block:'start'});
+  $$('.model-card').forEach(x=>x.onclick=()=>selectModel(x.dataset.model));
 }
-
+function selectModel(model){
+  selectedModel=model; $('#motoBrand').textContent=selectedBrand.toUpperCase(); $('#motoTitle').textContent=model; $('#modelSection').classList.add('hidden'); $('#motoSection').classList.remove('hidden');
+  $('#categoryGrid').innerHTML=categories.map(c=>`<button class="category-card" data-cat="${c[0]}"><span>${c[2]}</span><b>${c[0]}</b><small>${c[1]}</small><em>Ver productos →</em></button>`).join('');
+  $$('.category-card').forEach(x=>x.onclick=()=>showProducts(selectedBrand,selectedModel,x.dataset.cat));
+  showProducts(selectedBrand,selectedModel,'Todas',false);
+  $('#motoSection').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function showProducts(brand=null,model=null,cat='Todas',scroll=true){
+  activeCategory=cat; currentProducts=products.filter(p=>(!brand||p.brands.includes(brand))&&(!model||p.models.includes(model))&&(cat==='Todas'||p.category===cat));
+  $('#productsTitle').textContent=brand&&model?`${model} — PRODUCTOS`:'PRODUCTOS DESTACADOS';
+  $('#productsSub').textContent=brand&&model?`Repuestos y accesorios compatibles con ${brand} ${model}.`:'Explora nuestras piezas y accesorios disponibles.';
+  $$('.filter').forEach(x=>x.classList.toggle('active',x.dataset.cat===cat)); renderProducts(currentProducts);
+  if(scroll) $('#catalogo').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function renderProducts(list){
+  $('#products').innerHTML=list.map(p=>`<article class="product" data-id="${p.id}"><div class="product-image"><img src="${p.image}" alt="${p.name} ${p.variant}" loading="lazy"><span class="tag">DISPONIBLE</span></div><div class="product-info"><span class="product-type">${p.category.toUpperCase()}</span><h3>${p.name}</h3><small>${p.variant}</small><div class="product-bottom"><strong>$${money(p.price)}</strong><button type="button">VER PRODUCTO →</button></div></div></article>`).join('');
+  $('#emptyState').classList.toggle('hidden',list.length>0); $$('.product').forEach(x=>x.onclick=()=>openProduct(products.find(p=>p.id==x.dataset.id)));
+}
 function openProduct(p){
-  modalImage.src = p.image;
-  modalImage.alt = p.name;
-  modalName.textContent = p.name;
-  modalPrice.textContent = `$${money(p.price)} COP`;
-  modalWhatsapp.href = waLink(p.name);
-  modal.classList.add("open");
-  modal.setAttribute("aria-hidden","false");
-  document.body.classList.add("no-scroll");
+  $('#modalImage').src=p.image; $('#modalImage').alt=p.name; $('#modalName').textContent=`${p.name} — ${p.variant}`; $('#modalPrice').textContent=`$${money(p.price)} COP`; $('#modalCategory').textContent=p.category; $('#modalCompatibility').textContent=`Compatible con: ${p.brands.join(', ')} ${p.models.join(', ')}`; $('#modalTags').innerHTML=p.tags.map(t=>`<span>${t}</span>`).join(''); $('#modalWhatsapp').href=wa(`Hola, JHONY HENAO. Estoy interesado en ${p.name} — ${p.variant} por $${money(p.price)}. ¿Me confirman disponibilidad y envío?`); $('#productModal').classList.add('open'); document.body.classList.add('no-scroll');
 }
-function closeProduct(){
-  modal.classList.remove("open");
-  modal.setAttribute("aria-hidden","true");
-  document.body.classList.remove("no-scroll");
-}
+function closeModal(){ $('#productModal').classList.remove('open'); document.body.classList.remove('no-scroll'); }
 
-document.getElementById("modalClose").onclick = closeProduct;
-document.getElementById("modalBack").onclick = closeProduct;
-document.getElementById("modalBackdrop").onclick = closeProduct;
-document.addEventListener("keydown", e=>{if(e.key === "Escape") closeProduct();});
-
-document.getElementById("mainWhatsapp").href = waLink();
-document.getElementById("floatWhatsapp").href = waLink();
-document.getElementById("headerWhatsapp").href = waLink();
-document.getElementById("heroWhatsapp").href = waLink();
-document.getElementById("year").textContent = new Date().getFullYear();
-renderProducts();
+renderBrands(); renderProducts(products);
+$('#year').textContent=new Date().getFullYear();
+$('#backBrands').onclick=()=>{$('#modelSection').classList.add('hidden');$('#motoSection').classList.add('hidden');$('#motos').scrollIntoView({behavior:'smooth'});};
+$('#backModels').onclick=()=>{selectBrand(selectedBrand);};
+$('#showMotoProducts').onclick=()=>showProducts(selectedBrand,selectedModel,'Todas');
+$('#showAllProducts').onclick=()=>showProducts(null,null,'Todas');
+$('#allBrands').onclick=()=>{$('#modelSection').classList.add('hidden');$('#motoSection').classList.add('hidden');$('#motos').scrollIntoView({behavior:'smooth'});};
+$$('.filter').forEach(x=>x.onclick=()=>showProducts(selectedBrand,selectedModel,x.dataset.cat));
+$('#modalClose').onclick=closeModal; $('#modalBackdrop').onclick=closeModal; document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+$('#menuBtn').onclick=()=>$('#mobileMenu').classList.toggle('open');
+$$('#mobileMenu a').forEach(a=>a.onclick=()=>$('#mobileMenu').classList.remove('open'));
+$('.search-toggle').onclick=()=>{ $('#searchInput').focus(); $('#buscar').scrollIntoView({behavior:'smooth',block:'center'}); };
+$('#clearSearch').onclick=()=>{ $('#searchInput').value=''; renderProducts(products); $('#productsTitle').textContent='PRODUCTOS DESTACADOS'; $('#productsSub').textContent='Explora nuestras piezas y accesorios disponibles.'; };
+$('#searchInput').addEventListener('input',e=>{const q=e.target.value.toLowerCase().trim(); if(!q){renderProducts(products);return;} const list=products.filter(p=>(p.name+' '+p.variant+' '+p.category+' '+p.brands.join(' ')+' '+p.models.join(' ')+' '+p.tags.join(' ')).toLowerCase().includes(q)); $('#productsTitle').textContent=`RESULTADOS: ${e.target.value}`; $('#productsSub').textContent=`${list.length} producto(s) encontrado(s)`; renderProducts(list); $('#catalogo').scrollIntoView({behavior:'smooth',block:'start'});});
+$$('.search-hint button').forEach(b=>b.onclick=()=>{ $('#searchInput').value=b.dataset.search; $('#searchInput').dispatchEvent(new Event('input')); });
