@@ -8,7 +8,9 @@ const products = [
   {id:5, name:"Tapa cola — Negra", price:70000, image:"tapa-cola-negra.jpeg"},
   {id:6, name:"Tapa cola — Gris", price:70000, image:"tapa-cola-gris.jpeg"},
   {id:7, name:"Tapa cola — Azul oscuro", price:70000, image:"tapa-cola-azul-oscura.jpeg"},
-  {id:8, name:"Tapa cola — Blanca", price:70000, image:"tapa-cola-blanca.jpeg"}
+  {id:8, name:"Tapa cola — Blanca", price:70000, image:"tapa-cola-blanca.jpeg"},
+  {id:9, name:"Cachos soporte parrilla SZR 150 — Blanco", price:100000, image:"cachos-szr-150-blanco.jpeg"},
+  {id:10, name:"Cachos soporte parrilla SZR 150 — Negro", price:100000, image:"cachos-szr-150-negro.jpeg"}
 ];
 
 const money = n => new Intl.NumberFormat("es-CO").format(n);
