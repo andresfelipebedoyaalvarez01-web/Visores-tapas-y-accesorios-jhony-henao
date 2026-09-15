@@ -15,14 +15,8 @@ const products = [
 ];
 
 const brands = [
-  {name:"Yamaha",mark:"Y",models:["NMAX","SZR 150","FZ 150","XTZ 125","MT 15","R3"]},
-  {name:"Honda",mark:"H",models:["CB 190R","XR 150","XRE 300"]},
-  {name:"AKT",mark:"A",models:["NKD","TTR","Dynamic"]},
-  {name:"Bajaj",mark:"B",models:["Pulsar NS","Dominar","Boxer"]},
-  {name:"Suzuki",mark:"S",models:["Gixxer","DR 150","GSX"]},
-  {name:"TVS",mark:"T",models:["Apache","Raider","Sport"]},
-  {name:"Kawasaki",mark:"K",models:["Ninja","Z 250","Versys"]},
-  {name:"CFMoto",mark:"C",models:["300NK","300SR","450SR"]}
+  {name:"Yamaha", logo:"https://upload.wikimedia.org/wikipedia/commons/1/1b/Yamaha_Motor_2025.svg", models:["SZR 150","Libero","XT 660","NMAX V1","NMAX Connected V2","NMAX Connected V3","BWS FI"]},
+  {name:"Bajaj", logo:"https://upload.wikimedia.org/wikipedia/commons/c/c0/Bajaj_Motorcycles_logo.svg", models:["Pulsar 180","Pulsar 135","NS 150","NS 160","NS 200","Boxer CT","Discover 100","Discover 125","Discover 135","Discover ST"]}
 ];
 
 const categories = [
@@ -39,7 +33,7 @@ let selectedBrand=null, selectedModel=null, activeCategory='Todas', currentProdu
 const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
 
 function renderBrands(){
-  $('#brandGrid').innerHTML=brands.map((b,i)=>`<button class="brand-card" data-brand="${b.name}"><span class="brand-mark">${b.mark}</span><strong>${b.name}</strong><small>Ver motos →</small></button>`).join('');
+  $('#brandGrid').innerHTML=brands.map((b,i)=>`<button class="brand-card" data-brand="${b.name}"><img class="brand-logo" src="${b.logo}" alt="Logo ${b.name}"><strong>${b.name}</strong><small>Ver motos →</small></button>`).join('');
   $$('.brand-card').forEach(b=>b.onclick=()=>selectBrand(b.dataset.brand));
 }
 function selectBrand(name){
