@@ -1,18 +1,8 @@
 const WHATSAPP = "573016146491";
 const wa = (text) => `https://api.whatsapp.com/send?phone=${WHATSAPP}&text=${encodeURIComponent(text)}`;
 
-const products = [
-  {id:1,name:"Tapa cola",variant:"Plata",price:70000,image:"tapa-cola-plata.jpeg",category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapa cola","plata","szr 150"]},
-  {id:2,name:"Tapa cola",variant:"Verde",price:70000,image:"tapa-cola-verde.jpeg",category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapa cola","verde","szr 150"]},
-  {id:3,name:"Tapa cola",variant:"Roja",price:70000,image:"tapa-cola-roja.jpeg",category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapa cola","roja","szr 150"]},
-  {id:4,name:"Tapa cola",variant:"Azul",price:70000,image:"tapa-cola-azul.jpeg",category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapa cola","azul","szr 150"]},
-  {id:5,name:"Tapa cola",variant:"Negra",price:70000,image:"tapa-cola-negra.jpeg",category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapa cola","negra","szr 150"]},
-  {id:6,name:"Tapa cola",variant:"Gris",price:70000,image:"tapa-cola-gris.jpeg",category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapa cola","gris","szr 150"]},
-  {id:7,name:"Tapa cola",variant:"Azul oscuro",price:70000,image:"tapa-cola-azul-oscura.jpeg",category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapa cola","azul oscuro","szr 150"]},
-  {id:8,name:"Tapa cola",variant:"Blanca",price:70000,image:"tapa-cola-blanca.jpeg",category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapa cola","blanca","szr 150"]},
-  {id:9,name:"Cachos soporte parrilla",variant:"Blanco",price:100000,image:"cachos-szr-150-blanco.jpeg",category:"Soportes",brands:["Yamaha"],models:["SZR 150"],tags:["cachos","soporte parrilla","blanco","szr 150"]},
-  {id:10,name:"Cachos soporte parrilla",variant:"Negro",price:100000,image:"cachos-szr-150-negro.jpeg",category:"Soportes",brands:["Yamaha"],models:["SZR 150"],tags:["cachos","soporte parrilla","negro","szr 150"]}
-];
+// Los productos viven en catalogo/productos.js para poder administrarlos sin tocar la página.
+const products = window.CATALOGO?.PRODUCTS || [];
 
 const brands = [
   {name:"Yamaha", logo:"https://upload.wikimedia.org/wikipedia/commons/1/1b/Yamaha_Motor_2025.svg", models:["SZR 150","Libero","XT 660","NMAX V1","NMAX Connected V2","NMAX Connected V3","BWS FI"]},
@@ -33,7 +23,7 @@ let selectedBrand=null, selectedModel=null, activeCategory='Todas', currentProdu
 const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
 
 function renderBrands(){
-  $('#brandGrid').innerHTML=brands.map((b,i)=>`<button class="brand-card" data-brand="${b.name}"><img class="brand-logo" src="${b.logo}" alt="Logo ${b.name}"><strong>${b.name}</strong><small>Ver motos →</small></button>`).join('');
+  $('#brandGrid').innerHTML=brands.map(b=>`<button class="brand-card" data-brand="${b.name}"><img class="brand-logo" src="${b.logo}" alt="Logo ${b.name}"><strong>${b.name}</strong><small>Ver motos →</small></button>`).join('');
   $$('.brand-card').forEach(b=>b.onclick=()=>selectBrand(b.dataset.brand));
 }
 
@@ -85,7 +75,18 @@ function renderProducts(list){
   $('#emptyState').classList.toggle('hidden',list.length>0); $$('.product').forEach(x=>x.onclick=()=>openProduct(products.find(p=>p.id==x.dataset.id)));
 }
 function openProduct(p){
-  $('#modalImage').src=p.image; $('#modalImage').alt=p.name; $('#modalName').textContent=`${p.name} — ${p.variant}`; $('#modalPrice').textContent=`$${money(p.price)} COP`; $('#modalCategory').textContent=p.category; $('#modalCompatibility').textContent=`Compatible con: ${p.brands.join(', ')} ${p.models.join(', ')}`; $('#modalTags').innerHTML=p.tags.map(t=>`<span>${t}</span>`).join(''); $('#modalWhatsapp').href=wa(`Hola, JHONY HENAO. Estoy interesado en ${p.name} — ${p.variant} por $${money(p.price)}. ¿Me confirman disponibilidad y envío?`); $('#productModal').classList.add('open'); document.body.classList.add('no-scroll');
+  const images=(p.images&&p.images.length?p.images:[p.image]).filter(Boolean);
+  $('#modalImage').src=images[0]; $('#modalImage').alt=p.name;
+  $('#modalName').textContent=p.variant?`${p.name} — ${p.variant}`:p.name;
+  $('#modalPrice').textContent=`$${money(p.price)} COP`;
+  $('#modalCompatibility').textContent=`Compatible con: ${p.brands.join(', ')} ${p.models.join(', ')}`;
+  $('#modalDescription').textContent=p.description||'';
+  $('#modalDescription').classList.toggle('hidden',!p.description);
+  $('#modalTags').innerHTML=(p.tags||[]).map(t=>`<span>${t}</span>`).join('');
+  $('#modalThumbs').innerHTML=images.map((src,i)=>`<button class="modal-thumb ${i===0?'active':''}" type="button" data-image="${src}" aria-label="Ver foto ${i+1}"><img src="${src}" alt="${p.name} foto ${i+1}"></button>`).join('');
+  $$('.modal-thumb').forEach((thumb,i)=>thumb.onclick=(e)=>{e.stopPropagation(); $('#modalImage').src=thumb.dataset.image; $$('.modal-thumb').forEach(t=>t.classList.remove('active')); thumb.classList.add('active');});
+  $('#modalWhatsapp').href=wa(`Hola, JHONY HENAO. Estoy interesado en ${p.name}${p.variant?` — ${p.variant}`:''} por $${money(p.price)}. ¿Me confirman disponibilidad y envío?`);
+  $('#productModal').classList.add('open'); document.body.classList.add('no-scroll');
 }
 function closeModal(){ $('#productModal').classList.remove('open'); document.body.classList.remove('no-scroll'); }
 
@@ -102,5 +103,5 @@ $('#menuBtn').onclick=()=>$('#mobileMenu').classList.toggle('open');
 $$('#mobileMenu a').forEach(a=>a.onclick=()=>$('#mobileMenu').classList.remove('open'));
 $('.search-toggle').onclick=()=>{ $('#searchInput').focus(); $('#buscar').scrollIntoView({behavior:'smooth',block:'center'}); };
 $('#clearSearch').onclick=()=>{ $('#searchInput').value=''; renderProducts(products); $('#productsTitle').textContent='PRODUCTOS DESTACADOS'; $('#productsSub').textContent='Explora nuestras piezas y accesorios disponibles.'; };
-$('#searchInput').addEventListener('input',e=>{const q=e.target.value.toLowerCase().trim(); if(!q){renderProducts(products);return;} const list=products.filter(p=>(p.name+' '+p.variant+' '+p.category+' '+p.brands.join(' ')+' '+p.models.join(' ')+' '+p.tags.join(' ')).toLowerCase().includes(q)); $('#productsTitle').textContent=`RESULTADOS: ${e.target.value}`; $('#productsSub').textContent=`${list.length} producto(s) encontrado(s)`; renderProducts(list); $('#catalogo').scrollIntoView({behavior:'smooth',block:'start'});});
+$('#searchInput').addEventListener('input',e=>{const q=e.target.value.toLowerCase().trim(); if(!q){renderProducts(products);return;} const list=products.filter(p=>(p.name+' '+p.variant+' '+p.category+' '+p.brands.join(' ')+' '+p.models.join(' ')+' '+p.tags.join(' ')+' '+(p.description||'')).toLowerCase().includes(q)); $('#productsTitle').textContent=`RESULTADOS: ${e.target.value}`; $('#productsSub').textContent=`${list.length} producto(s) encontrado(s)`; renderProducts(list); $('#catalogo').scrollIntoView({behavior:'smooth',block:'start'});});
 $$('.search-hint button').forEach(b=>b.onclick=()=>{ $('#searchInput').value=b.dataset.search; $('#searchInput').dispatchEvent(new Event('input')); });
