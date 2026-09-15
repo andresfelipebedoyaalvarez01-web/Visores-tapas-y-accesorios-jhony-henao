@@ -1,7 +1,7 @@
 const WHATSAPP = "573016146491";
 const wa = (text) => `https://api.whatsapp.com/send?phone=${WHATSAPP}&text=${encodeURIComponent(text)}`;
 
-// Los productos viven en catalogo/productos.js para poder administrarlos sin tocar la página.
+// Los productos viven en productos.js para poder administrarlos sin tocar la página.
 const products = window.CATALOGO?.PRODUCTS || [];
 
 const brands = [
