@@ -1,38 +1,90 @@
 /*
  * CATÁLOGO DE PRODUCTOS — JHONY HENAO
- *
- * Para agregar un producto nuevo, solo añade otro objeto dentro de PRODUCTS.
- * Todas las imágenes están en la carpeta "imagenes".
- * Un producto puede tener una o varias fotos en el arreglo "images".
  */
 window.CATALOGO = {
   PRODUCTS: [
-    {id:1,name:"Tapa cola",variant:"Plata",price:70000,image:"imagenes/tapa-cola-plata.jpeg",images:["imagenes/tapa-cola-plata.jpeg"],category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapa cola","plata","szr 150"],description:"Tapa cola para Yamaha SZR 150 con acabado en color plata."},
-    {id:2,name:"Tapa cola",variant:"Verde",price:70000,image:"imagenes/tapa-cola-verde.jpeg",images:["imagenes/tapa-cola-verde.jpeg"],category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapa cola","verde","szr 150"],description:"Tapa cola para Yamaha SZR 150 con acabado en color verde."},
-    {id:3,name:"Tapa cola",variant:"Roja",price:70000,image:"imagenes/tapa-cola-roja.jpeg",images:["imagenes/tapa-cola-roja.jpeg"],category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapa cola","roja","szr 150"],description:"Tapa cola para Yamaha SZR 150 con acabado en color rojo."},
-    {id:4,name:"Tapa cola",variant:"Azul",price:70000,image:"imagenes/tapa-cola-azul.jpeg",images:["imagenes/tapa-cola-azul.jpeg"],category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapa cola","azul","szr 150"],description:"Tapa cola para Yamaha SZR 150 con acabado en color azul."},
-    {id:5,name:"Tapa cola",variant:"Negra",price:70000,image:"imagenes/tapa-cola-negra.jpeg",images:["imagenes/tapa-cola-negra.jpeg"],category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapa cola","negra","szr 150"],description:"Tapa cola para Yamaha SZR 150 con acabado en color negro."},
-    {id:6,name:"Tapa cola",variant:"Gris",price:70000,image:"imagenes/tapa-cola-gris.jpeg",images:["imagenes/tapa-cola-gris.jpeg"],category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapa cola","gris","szr 150"],description:"Tapa cola para Yamaha SZR 150 con acabado en color gris."},
-    {id:7,name:"Tapa cola",variant:"Azul oscuro",price:70000,image:"imagenes/tapa-cola-azul-oscura.jpeg",images:["imagenes/tapa-cola-azul-oscura.jpeg"],category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapa cola","azul oscuro","szr 150"],description:"Tapa cola para Yamaha SZR 150 con acabado en azul oscuro."},
-    {id:8,name:"Tapa cola",variant:"Blanca",price:70000,image:"imagenes/tapa-cola-blanca.jpeg",images:["imagenes/tapa-cola-blanca.jpeg"],category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapa cola","blanca","szr 150"],description:"Tapa cola para Yamaha SZR 150 con acabado en color blanco."},
-    {id:9,name:"Cachos soporte parrilla",variant:"Blanco",price:100000,image:"imagenes/cachos-szr-150-blanco.jpeg",images:["imagenes/cachos-szr-150-blanco.jpeg"],category:"Soportes",brands:["Yamaha"],models:["SZR 150"],tags:["cachos","soporte parrilla","blanco","szr 150"],description:"Cachos para soporte de parrilla compatibles con Yamaha SZR 150."},
-    {id:10,name:"Cachos soporte parrilla",variant:"Negro",price:100000,image:"imagenes/cachos-szr-150-negro.jpeg",images:["imagenes/cachos-szr-150-negro.jpeg"],category:"Soportes",brands:["Yamaha"],models:["SZR 150"],tags:["cachos","soporte parrilla","negro","szr 150"],description:"Cachos para soporte de parrilla compatibles con Yamaha SZR 150."},
-    {id:11,name:"Cachetes / carenaje lateral",variant:"Azul / Plata / Negro / Azul oscuro / Negro mate / Rojo / Verde",price:40000,image:"imagenes/cachetes-szr-150-1.jpeg",images:["imagenes/cachetes-szr-150-1.jpeg","imagenes/cachetes-szr-150-2.jpeg","imagenes/cachetes-szr-150-3.jpeg","imagenes/cachetes-szr-150-4.jpeg","imagenes/cachetes-szr-150-5.jpeg","imagenes/cachetes-szr-150-6.jpeg","imagenes/cachetes-szr-150-7.jpeg"],category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["cachetes","carenaje","lateral","szr 150","tapas"],description:"Juego de cachetes o carenaje lateral para Yamaha SZR 150. Disponible en diferentes colores."}
-    ,{id:12,name:"Visor Yamaha SZR 150",variant:"Rojo",price:30000,image:"imagenes/visor-szr-150-rojo.jpeg",images:["imagenes/visor-szr-150-rojo.jpeg"],category:"Visores",brands:["Yamaha"],models:["SZR 150"],tags:["visor","rojo","szr 150","yamaha"],description:"Visor para Yamaha SZR 150. Disponible en color rojo. Precio: $30.000."},
-    {id:13,name:"Visor Yamaha SZR 150",variant:"Ahumado",price:30000,image:"imagenes/visor-szr-150-ahumado.jpeg",images:["imagenes/visor-szr-150-ahumado.jpeg"],category:"Visores",brands:["Yamaha"],models:["SZR 150"],tags:["visor","ahumado","szr 150","yamaha"],description:"Visor para Yamaha SZR 150. Disponible en color ahumado. Precio: $30.000."},
-    {id:14,name:"Visor Yamaha SZR 150",variant:"Naranja",price:30000,image:"imagenes/visor-szr-150-naranja.jpeg",images:["imagenes/visor-szr-150-naranja.jpeg"],category:"Visores",brands:["Yamaha"],models:["SZR 150"],tags:["visor","naranja","szr 150","yamaha"],description:"Visor para Yamaha SZR 150. Disponible en color naranja. Precio: $30.000."},
-    {id:15,name:"Visor Yamaha SZR 150",variant:"Azul",price:30000,image:"imagenes/visor-szr-150-azul.jpeg",images:["imagenes/visor-szr-150-azul.jpeg"],category:"Visores",brands:["Yamaha"],models:["SZR 150"],tags:["visor","azul","szr 150","yamaha"],description:"Visor para Yamaha SZR 150. Disponible en color azul. Precio: $30.000."},
-    {id:16,name:"Visor Yamaha SZR 150",variant:"Morado",price:30000,image:"imagenes/visor-szr-150-morado.jpeg",images:["imagenes/visor-szr-150-morado.jpeg"],category:"Visores",brands:["Yamaha"],models:["SZR 150"],tags:["visor","morado","szr 150","yamaha"],description:"Visor para Yamaha SZR 150. Disponible en color morado. Precio: $30.000."},
-    {id:17,name:"Visor Yamaha SZR 150",variant:"Negro",price:30000,image:"imagenes/visor-szr-150-negro.jpeg",images:["imagenes/visor-szr-150-negro.jpeg"],category:"Visores",brands:["Yamaha"],models:["SZR 150"],tags:["visor","negro","szr 150","yamaha"],description:"Visor para Yamaha SZR 150. Disponible en color negro. Precio: $30.000."},
-    {id:18,name:"Visor Yamaha SZR 150",variant:"Transparente",price:30000,image:"imagenes/visor-szr-150-transparente.jpeg",images:["imagenes/visor-szr-150-transparente.jpeg"],category:"Visores",brands:["Yamaha"],models:["SZR 150"],tags:["visor","transparente","szr 150","yamaha"],description:"Visor para Yamaha SZR 150. Disponible en transparente. Precio: $30.000."},
-    {id:19,name:"Tapas de tanque SZR 150",variant:"Rojo",price:100000,image:"imagenes/tapas-tanque-szr-150-rojo.png",images:["imagenes/tapas-tanque-szr-150-rojo.png"],category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapas de tanque","tanque","rojo","szr 150"],description:"Tapas de tanque para Yamaha SZR 150. Variante roja. Precio: $100.000."},
-    {id:20,name:"Tapas de tanque SZR 150",variant:"Negro",price:100000,image:"imagenes/tapas-tanque-szr-150-negro.png",images:["imagenes/tapas-tanque-szr-150-negro.png"],category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapas de tanque","tanque","negro","szr 150"],description:"Tapas de tanque para Yamaha SZR 150. Variante negra. Precio: $100.000."},
-    {id:21,name:"Tapas de tanque SZR 150",variant:"Gris",price:100000,image:"imagenes/tapas-tanque-szr-150-gris.png",images:["imagenes/tapas-tanque-szr-150-gris.png"],category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapas de tanque","tanque","gris","szr 150"],description:"Tapas de tanque para Yamaha SZR 150. Variante gris. Precio: $100.000."},
-    {id:22,name:"Tapas de tanque SZR 150",variant:"Blanco",price:100000,image:"imagenes/tapas-tanque-szr-150-blanco.png",images:["imagenes/tapas-tanque-szr-150-blanco.png"],category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapas de tanque","tanque","blanco","szr 150"],description:"Tapas de tanque para Yamaha SZR 150. Variante blanca. Precio: $100.000."}
-    {id:23,name:"Guardabarros delantero SZR 150",variant:"Azul / Rojo / Plata / Gris / Blanco / Verde / Negro",price:60000,image:"imagenes/guardabarros-szr-150-azul.jpg",images:["imagenes/guardabarros-szr-150-azul.jpg","imagenes/guardabarros-szr-150-rojo.png","imagenes/guardabarros-szr-150-plata.jpg","imagenes/guardabarros-szr-150-gris.jpg","imagenes/guardabarros-szr-150-blanco.png","imagenes/guardabarros-szr-150-verde.png","imagenes/guardabarros-szr-150-negro.png"],category:"Guardabarros",brands:["Yamaha"],models:["SZR 150"],tags:["guardabarros","guardabarros delantero","szr 150","yamaha"],description:"Guardabarros delantero para Yamaha SZR 150. Disponible en diferentes colores. Precio: $60.000."},
-    {id:24,name:"Cachos para parrilla BWS FI",variant:"3 fotos",price:110000,image:"imagenes/cachos-parrilla-bws-fi-plata.jpg",images:["imagenes/cachos-parrilla-bws-fi-plata.jpg","imagenes/cachos-parrilla-bws-fi-negro.jpg","imagenes/cachos-parrilla-bws-fi-plata-2.jpg"],category:"Soportes",brands:["Yamaha"],models:["BWS FI"],tags:["cachos","parrilla","bws fi","soporte","yamaha"],description:"Cachos para parrilla de Yamaha BWS FI. Se muestran tres fotos del producto. Precio: $110.000."},
-    {id:25,name:"Carenaje delantero SZR 150",variant:"Coca grande",price:40000,image:"imagenes/carenaje-delantero-szr-150-coca-grande.jpg",images:["imagenes/carenaje-delantero-szr-150-coca-grande.jpg"],category:"Carenajes",brands:["Yamaha"],models:["SZR 150"],tags:["carenaje delantero","coca grande","szr 150","yamaha"],description:"Carenaje delantero tipo coca grande para Yamaha SZR 150. Precio: $40.000."},
-    {id:26,name:"Protector de mofle",variant:"Pequeño redondo",price:20000,image:"imagenes/protector-mofle-pequeno-redondo.jpg",images:["imagenes/protector-mofle-pequeno-redondo.jpg"],category:"Protectores",brands:["Yamaha"],models:["SZR 150"],tags:["protector mofle","mofle","pequeño","redondo"],description:"Protector de mofle pequeño, con estructura redonda, en plástico negro. Precio: $20.000."},
-    {id:27,name:"Protector de mofle",variant:"Largo",price:30000,image:"imagenes/protector-mofle-largo.JPG",images:["imagenes/protector-mofle-largo.JPG"],category:"Protectores",brands:["Yamaha"],models:["SZR 150"],tags:["protector mofle","mofle","largo","alargado"],description:"Protector de mofle largo o alargado, en plástico negro. Precio: $30.000."}
+
+    {id:1,name:"Tapa cola SZR 150",variant:"Plata",price:70000,image:"tapa-cola-plata.jpeg",images:["tapa-cola-plata.jpeg"],category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapa cola","plata","szr 150"],description:"Tapa cola para Yamaha SZR 150 en color plata."},
+
+    {id:2,name:"Tapa cola SZR 150",variant:"Verde",price:70000,image:"tapa-cola-verde.jpeg",images:["tapa-cola-verde.jpeg"],category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapa cola","verde","szr 150"],description:"Tapa cola para Yamaha SZR 150 en color verde."},
+
+    {id:3,name:"Tapa cola SZR 150",variant:"Roja",price:70000,image:"tapa-cola-roja.jpeg",images:["tapa-cola-roja.jpeg"],category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapa cola","roja","szr 150"],description:"Tapa cola para Yamaha SZR 150 en color rojo."},
+
+    {id:4,name:"Tapa cola SZR 150",variant:"Azul",price:70000,image:"tapa-cola-azul.jpeg",images:["tapa-cola-azul.jpeg"],category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapa cola","azul","szr 150"],description:"Tapa cola para Yamaha SZR 150 en color azul."},
+
+    {id:5,name:"Tapa cola SZR 150",variant:"Negra",price:70000,image:"tapa-cola-negra.jpeg",images:["tapa-cola-negra.jpeg"],category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapa cola","negra","szr 150"],description:"Tapa cola para Yamaha SZR 150 en color negro."},
+
+    {id:6,name:"Tapa cola SZR 150",variant:"Gris",price:70000,image:"tapa-cola-gris.jpeg",images:["tapa-cola-gris.jpeg"],category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapa cola","gris","szr 150"],description:"Tapa cola para Yamaha SZR 150 en color gris."},
+
+    {id:7,name:"Tapa cola SZR 150",variant:"Azul oscuro",price:70000,image:"tapa-cola-azul-oscura.jpeg",images:["tapa-cola-azul-oscura.jpeg"],category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapa cola","azul oscuro","szr 150"],description:"Tapa cola para Yamaha SZR 150 en color azul oscuro."},
+
+    {id:8,name:"Tapa cola SZR 150",variant:"Blanca",price:70000,image:"tapa-cola-blanca.jpeg",images:["tapa-cola-blanca.jpeg"],category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapa cola","blanca","szr 150"],description:"Tapa cola para Yamaha SZR 150 en color blanco."},
+
+    {id:9,name:"Soporte de parrilla SZR 150",variant:"Blanco",price:100000,image:"cachos-szr-150-blanco.jpeg",images:["cachos-szr-150-blanco.jpeg"],category:"Soportes",brands:["Yamaha"],models:["SZR 150"],tags:["soporte","parrilla","szr 150"],description:"Soporte de parrilla para Yamaha SZR 150."},
+
+    {id:10,name:"Soporte de parrilla SZR 150",variant:"Negro",price:100000,image:"cachos-szr-150-negro.jpeg",images:["cachos-szr-150-negro.jpeg"],category:"Soportes",brands:["Yamaha"],models:["SZR 150"],tags:["soporte","parrilla","szr 150"],description:"Soporte de parrilla para Yamaha SZR 150."},
+
+    {id:11,name:"Cachetes laterales SZR 150",variant:"Azul",price:40000,image:"cachetes-szr-150-1.jpeg",images:["cachetes-szr-150-1.jpeg"],category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["cachetes","laterales","szr 150"],description:"Cachetes laterales para Yamaha SZR 150."},
+
+    {id:12,name:"Cachetes laterales SZR 150",variant:"Variante 2",price:40000,image:"cachetes-szr-150-2.jpeg",images:["cachetes-szr-150-2.jpeg"],category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["cachetes","laterales","szr 150"],description:"Cachetes laterales para Yamaha SZR 150."},
+
+    {id:13,name:"Cachetes laterales SZR 150",variant:"Variante 3",price:40000,image:"cachetes-szr-150-3.jpeg",images:["cachetes-szr-150-3.jpeg"],category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["cachetes","laterales","szr 150"],description:"Cachetes laterales para Yamaha SZR 150."},
+
+    {id:14,name:"Cachetes laterales SZR 150",variant:"Variante 4",price:40000,image:"cachetes-szr-150-4.jpeg",images:["cachetes-szr-150-4.jpeg"],category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["cachetes","laterales","szr 150"],description:"Cachetes laterales para Yamaha SZR 150."},
+
+    {id:15,name:"Cachetes laterales SZR 150",variant:"Variante 5",price:40000,image:"cachetes-szr-150-5.jpeg",images:["cachetes-szr-150-5.jpeg"],category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["cachetes","laterales","szr 150"],description:"Cachetes laterales para Yamaha SZR 150."},
+
+    {id:16,name:"Cachetes laterales SZR 150",variant:"Variante 6",price:40000,image:"cachetes-szr-150-6.jpeg",images:["cachetes-szr-150-6.jpeg"],category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["cachetes","laterales","szr 150"],description:"Cachetes laterales para Yamaha SZR 150."},
+
+    {id:17,name:"Cachetes laterales SZR 150",variant:"Variante 7",price:40000,image:"cachetes-szr-150-7.jpeg",images:["cachetes-szr-150-7.jpeg"],category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["cachetes","laterales","szr 150"],description:"Cachetes laterales para Yamaha SZR 150."},
+
+    {id:18,name:"Visor SZR 150",variant:"Rojo",price:30000,image:"visor-szr-150-rojo.jpeg",images:["visor-szr-150-rojo.jpeg"],category:"Visores",brands:["Yamaha"],models:["SZR 150"],tags:["visor","rojo","szr 150"],description:"Visor para Yamaha SZR 150."},
+
+    {id:19,name:"Visor SZR 150",variant:"Ahumado",price:30000,image:"visor-szr-150-ahumado.jpeg",images:["visor-szr-150-ahumado.jpeg"],category:"Visores",brands:["Yamaha"],models:["SZR 150"],tags:["visor","ahumado","szr 150"],description:"Visor para Yamaha SZR 150."},
+
+    {id:20,name:"Visor SZR 150",variant:"Naranja",price:30000,image:"visor-szr-150-naranja.jpeg",images:["visor-szr-150-naranja.jpeg"],category:"Visores",brands:["Yamaha"],models:["SZR 150"],tags:["visor","naranja","szr 150"],description:"Visor para Yamaha SZR 150."},
+
+    {id:21,name:"Visor SZR 150",variant:"Azul",price:30000,image:"visor-szr-150-azul.jpeg",images:["visor-szr-150-azul.jpeg"],category:"Visores",brands:["Yamaha"],models:["SZR 150"],tags:["visor","azul","szr 150"],description:"Visor para Yamaha SZR 150."},
+
+    {id:22,name:"Visor SZR 150",variant:"Morado",price:30000,image:"visor-szr-150-morado.jpeg",images:["visor-szr-150-morado.jpeg"],category:"Visores",brands:["Yamaha"],models:["SZR 150"],tags:["visor","morado","szr 150"],description:"Visor para Yamaha SZR 150."},
+
+    {id:23,name:"Visor SZR 150",variant:"Negro",price:30000,image:"visor-szr-150-negro.jpeg",images:["visor-szr-150-negro.jpeg"],category:"Visores",brands:["Yamaha"],models:["SZR 150"],tags:["visor","negro","szr 150"],description:"Visor para Yamaha SZR 150."},
+
+    {id:24,name:"Visor SZR 150",variant:"Transparente",price:30000,image:"visor-szr-150-transparente.jpeg",images:["visor-szr-150-transparente.jpeg"],category:"Visores",brands:["Yamaha"],models:["SZR 150"],tags:["visor","transparente","szr 150"],description:"Visor para Yamaha SZR 150."},
+
+    {id:25,name:"Juego de tapas de tanque SZR 150",variant:"Rojo",price:100000,image:"tapas-tanque-szr-150-rojo.png",images:["tapas-tanque-szr-150-rojo.png"],category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapas tanque","rojo","szr 150"],description:"Juego de tapas de tanque para Yamaha SZR 150."},
+
+    {id:26,name:"Juego de tapas de tanque SZR 150",variant:"Negro",price:100000,image:"tapas-tanque-szr-150-negro.png",images:["tapas-tanque-szr-150-negro.png"],category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapas tanque","negro","szr 150"],description:"Juego de tapas de tanque para Yamaha SZR 150."},
+
+    {id:27,name:"Juego de tapas de tanque SZR 150",variant:"Gris",price:100000,image:"tapas-tanque-szr-150-gris.png",images:["tapas-tanque-szr-150-gris.png"],category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapas tanque","gris","szr 150"],description:"Juego de tapas de tanque para Yamaha SZR 150."},
+
+    {id:28,name:"Juego de tapas de tanque SZR 150",variant:"Blanco",price:100000,image:"tapas-tanque-szr-150-blanco.png",images:["tapas-tanque-szr-150-blanco.png"],category:"Tapas",brands:["Yamaha"],models:["SZR 150"],tags:["tapas tanque","blanco","szr 150"],description:"Juego de tapas de tanque para Yamaha SZR 150."},
+
+    {id:29,name:"Guardabarros delantero SZR 150",variant:"Azul",price:60000,image:"guardabarros-szr-150-azul.jpg",images:["guardabarros-szr-150-azul.jpg"],category:"Guardabarros",brands:["Yamaha"],models:["SZR 150"],tags:["guardabarros","azul","szr 150"],description:"Guardabarros delantero para Yamaha SZR 150."},
+
+    {id:30,name:"Guardabarros delantero SZR 150",variant:"Rojo",price:60000,image:"guardabarros-szr-150-rojo.png",images:["guardabarros-szr-150-rojo.png"],category:"Guardabarros",brands:["Yamaha"],models:["SZR 150"],tags:["guardabarros","rojo","szr 150"],description:"Guardabarros delantero para Yamaha SZR 150."},
+
+    {id:31,name:"Guardabarros delantero SZR 150",variant:"Plata",price:60000,image:"guardabarros-szr-150-plata.jpg",images:["guardabarros-szr-150-plata.jpg"],category:"Guardabarros",brands:["Yamaha"],models:["SZR 150"],tags:["guardabarros","plata","szr 150"],description:"Guardabarros delantero para Yamaha SZR 150."},
+
+    {id:32,name:"Guardabarros delantero SZR 150",variant:"Gris",price:60000,image:"guardabarros-szr-150-gris.jpg",images:["guardabarros-szr-150-gris.jpg"],category:"Guardabarros",brands:["Yamaha"],models:["SZR 150"],tags:["guardabarros","gris","szr 150"],description:"Guardabarros delantero para Yamaha SZR 150."},
+
+    {id:33,name:"Guardabarros delantero SZR 150",variant:"Blanco",price:60000,image:"guardabarros-szr-150-blanco.png",images:["guardabarros-szr-150-blanco.png"],category:"Guardabarros",brands:["Yamaha"],models:["SZR 150"],tags:["guardabarros","blanco","szr 150"],description:"Guardabarros delantero para Yamaha SZR 150."},
+
+    {id:34,name:"Guardabarros delantero SZR 150",variant:"Verde",price:60000,image:"guardabarros-szr-150-verde.png",images:["guardabarros-szr-150-verde.png"],category:"Guardabarros",brands:["Yamaha"],models:["SZR 150"],tags:["guardabarros","verde","szr 150"],description:"Guardabarros delantero para Yamaha SZR 150."},
+
+    {id:35,name:"Guardabarros delantero SZR 150",variant:"Negro",price:60000,image:"guardabarros-szr-150-negro.png",images:["guardabarros-szr-150-negro.png"],category:"Guardabarros",brands:["Yamaha"],models:["SZR 150"],tags:["guardabarros","negro","szr 150"],description:"Guardabarros delantero para Yamaha SZR 150."},
+
+    {id:36,name:"Cachos para parrilla BWS FI",variant:"Plata",price:110000,image:"cachos-parrilla-bws-fi-plata.jpg",images:["cachos-parrilla-bws-fi-plata.jpg"],category:"Soportes",brands:["Yamaha"],models:["BWS FI"],tags:["cachos","parrilla","bws fi"],description:"Cachos para parrilla BWS FI."},
+
+    {id:37,name:"Cachos para parrilla BWS FI",variant:"Negro",price:110000,image:"cachos-parrilla-bws-fi-negro.jpg",images:["cachos-parrilla-bws-fi-negro.jpg"],category:"Soportes",brands:["Yamaha"],models:["BWS FI"],tags:["cachos","parrilla","bws fi"],description:"Cachos para parrilla BWS FI."},
+
+    {id:38,name:"Cachos para parrilla BWS FI",variant:"Plata 2",price:110000,image:"cachos-parrilla-bws-fi-plata-2.jpg",images:["cachos-parrilla-bws-fi-plata-2.jpg"],category:"Soportes",brands:["Yamaha"],models:["BWS FI"],tags:["cachos","parrilla","bws fi"],description:"Cachos para parrilla BWS FI."},
+
+    {id:39,name:"Carenaje delantero SZR 150",variant:"Disponible",price:40000,image:"carenaje-szr-150-.jpg",images:["carenaje-szr-150-.jpg"],category:"Carenajes",brands:["Yamaha"],models:["SZR 150"],tags:["carenaje delantero","szr 150"],description:"Carenaje delantero para Yamaha SZR 150."},
+
+    {id:40,name:"Protector de mofle SZR 150",variant:"Redondo",price:20000,image:"protector-mofle-szr.JPG",images:["protector-mofle-szr.JPG"],category:"Protectores",brands:["Yamaha"],models:["SZR 150"],tags:["protector mofle","redondo","szr 150"],description:"Protector de mofle SZR 150, estructura redonda, en plástico negro."},
+
+    {id:41,name:"Protector de mofle SZR 150",variant:"Largo",price:30000,image:"protector-mofle-trasero szr.jpg",images:["protector-mofle-trasero szr.jpg"],category:"Protectores",brands:["Yamaha"],models:["SZR 150"],tags:["protector mofle","largo","szr 150"],description:"Protector de mofle SZR 150, diseño largo y alargado, en plástico negro."}
+
   ]
 };
