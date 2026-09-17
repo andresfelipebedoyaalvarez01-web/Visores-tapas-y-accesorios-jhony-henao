@@ -45,6 +45,25 @@ const money=n=>new Intl.NumberFormat('es-CO').format(n);
 let selectedBrand=null, selectedModel=null, activeCategory='Todas', currentProducts=products;
 const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
 
+function goHome(){
+  closeModal(true);
+  closeCart(true);
+  selectedBrand=null;
+  selectedModel=null;
+  activeCategory='Todas';
+  currentProducts=products;
+  $('#modelSection').classList.add('hidden');
+  $('#motoSection').classList.add('hidden');
+  $('#searchInput').value='';
+  $('#productsTitle').textContent='PRODUCTOS DESTACADOS';
+  $('#productsSub').textContent='Explora nuestras piezas y accesorios disponibles.';
+  $$('.filter').forEach(x=>x.classList.toggle('active',x.dataset.cat==='Todas'));
+  renderProducts(products);
+  history.replaceState({jhony:'home'}, '', '#inicio');
+  $('#inicio').scrollIntoView({behavior:'smooth',block:'start'});
+  document.body.classList.remove('no-scroll');
+}
+
 function renderBrands(){
   $('#brandGrid').innerHTML=brands.map(b=>`<button class="brand-card" data-brand="${b.name}"><img class="brand-logo" src="${b.logo}" alt="Logo ${b.name}"><strong>${b.name}</strong><small>Ver motos →</small></button>`).join('');
   $$('.brand-card').forEach(b=>b.onclick=()=>selectBrand(b.dataset.brand));
@@ -147,6 +166,7 @@ function closeModal(fromHistory=false){ $('#productModal').classList.remove('ope
 
 renderBrands(); renderProducts(products);
 $('#year').textContent=new Date().getFullYear();
+$('#homeBtn').onclick=goHome;
 $('#backBrands').onclick=()=>{$('#modelSection').classList.add('hidden');$('#motoSection').classList.add('hidden');$('#motos').scrollIntoView({behavior:'smooth'});};
 $('#backModels').onclick=()=>{selectBrand(selectedBrand);};
 $('#showMotoProducts').onclick=()=>showProducts(selectedBrand,selectedModel,'Todas');

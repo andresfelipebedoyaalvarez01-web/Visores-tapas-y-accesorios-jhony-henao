@@ -666,7 +666,7 @@ window.CATALOGO = {
     "images": [
       "guardabarros-szr-150-azul.jpg"
     ],
-    "category": "Guardabarros",
+    "category": "Accesorios",
     "brands": [
       "Yamaha"
     ],
@@ -690,7 +690,7 @@ window.CATALOGO = {
     "images": [
       "guardabarros-szr-150-rojo.png"
     ],
-    "category": "Guardabarros",
+    "category": "Accesorios",
     "brands": [
       "Yamaha"
     ],
@@ -714,7 +714,7 @@ window.CATALOGO = {
     "images": [
       "guardabarros-szr-150-plata.jpg"
     ],
-    "category": "Guardabarros",
+    "category": "Accesorios",
     "brands": [
       "Yamaha"
     ],
@@ -738,7 +738,7 @@ window.CATALOGO = {
     "images": [
       "guardabarros-szr-150-gris.jpg"
     ],
-    "category": "Guardabarros",
+    "category": "Accesorios",
     "brands": [
       "Yamaha"
     ],
@@ -762,7 +762,7 @@ window.CATALOGO = {
     "images": [
       "guardabarros-szr-150-blanco.png"
     ],
-    "category": "Guardabarros",
+    "category": "Accesorios",
     "brands": [
       "Yamaha"
     ],
@@ -786,7 +786,7 @@ window.CATALOGO = {
     "images": [
       "guardabarros-szr-150-verde.png"
     ],
-    "category": "Guardabarros",
+    "category": "Accesorios",
     "brands": [
       "Yamaha"
     ],
@@ -810,7 +810,7 @@ window.CATALOGO = {
     "images": [
       "guardabarros-szr-150-negro.png"
     ],
-    "category": "Guardabarros",
+    "category": "Accesorios",
     "brands": [
       "Yamaha"
     ],
@@ -906,7 +906,7 @@ window.CATALOGO = {
     "images": [
       "carenaje-szr-150-.jpg"
     ],
-    "category": "Carenajes",
+    "category": "Accesorios",
     "brands": [
       "Yamaha"
     ],
@@ -923,13 +923,13 @@ window.CATALOGO = {
   {
     "id": 40,
     "name": "Protector de mofle SZR 150",
-    "variant": "Redondo",
-    "price": 20000,
+    "variant": "Largo",
+    "price": 30000,
     "image": "protector-mofle-szr.JPG",
     "images": [
       "protector-mofle-szr.JPG"
     ],
-    "category": "Protectores",
+    "category": "Accesorios",
     "brands": [
       "Yamaha"
     ],
@@ -947,13 +947,13 @@ window.CATALOGO = {
   {
     "id": 41,
     "name": "Protector de mofle SZR 150",
-    "variant": "Largo",
-    "price": 30000,
+    "variant": "Redondo",
+    "price": 20000,
     "image": "protector-mofle-trasero szr.jpg",
     "images": [
       "protector-mofle-trasero szr.jpg"
     ],
-    "category": "Protectores",
+    "category": "Accesorios",
     "brands": [
       "Yamaha"
     ],
@@ -1317,7 +1317,7 @@ window.CATALOGO = {
     "images": [
       "protector-mofle-nmax-v2-v3.jpeg"
     ],
-    "category": "Protectores",
+    "category": "Accesorios",
     "brands": [
       "Yamaha"
     ],
@@ -1348,7 +1348,7 @@ window.CATALOGO = {
     "images": [
       "protector-mofle-nmax-v1.jpeg"
     ],
-    "category": "Protectores",
+    "category": "Accesorios",
     "brands": [
       "Yamaha"
     ],
@@ -1374,7 +1374,7 @@ window.CATALOGO = {
       "guardabarros-libero-125-azul.png",
       "guardabarros-libero-125-rojo.png"
     ],
-    "category": "Guardabarros",
+    "category": "Accesorios",
     "brands": [
       "Yamaha"
     ],
