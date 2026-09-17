@@ -1363,6 +1363,36 @@ window.CATALOGO = {
       "yamaha"
     ],
     "description": "Protector de mofle para Yamaha NMAX V1. Precio: $40.000."
+  }  ,{
+    "id": 56,
+    "name": "Guardabarros Libero 125",
+    "variant": "Varios colores",
+    "price": 60000,
+    "image": "guardabarros-libero-125-negro.jpeg",
+    "images": [
+      "guardabarros-libero-125-negro.jpeg",
+      "guardabarros-libero-125-azul.png",
+      "guardabarros-libero-125-rojo.png"
+    ],
+    "category": "Guardabarros",
+    "brands": [
+      "Yamaha"
+    ],
+    "models": [
+      "Libero"
+    ],
+    "tags": [
+      "guardabarros",
+      "guardabarros libero",
+      "libero",
+      "libero 125",
+      "yamaha",
+      "negro",
+      "azul",
+      "rojo"
+    ],
+    "description": "Guardabarros para Yamaha Libero 125. Disponible en negro, azul y rojo. Precio: $60.000."
   }
+
 ]
 };

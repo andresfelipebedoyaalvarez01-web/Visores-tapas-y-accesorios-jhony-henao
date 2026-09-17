@@ -113,6 +113,7 @@ function openProduct(p){
   $('#modalWhatsapp').href=wa(`Hola, JHONY HENAO. Estoy interesado en ${p.name}${p.variant?` — ${p.variant}`:''} por $${money(p.price)}. ¿Me confirman disponibilidad y envío?`);
   $('#addToCart').onclick=()=>addToCart(p);
   $('#productModal').classList.add('open'); document.body.classList.add('no-scroll');
+  if (!history.state || history.state.jhony !== 'product') history.pushState({jhony:'product', id:p.id}, '', '#producto-' + p.id);
 }
 const CART_KEY='jhony_henao_cart_v1';
 let cart=JSON.parse(localStorage.getItem(CART_KEY)||'[]');
@@ -120,7 +121,7 @@ function saveCart(){localStorage.setItem(CART_KEY,JSON.stringify(cart));renderCa
 function addToCart(p){
   const found=cart.find(x=>x.id===p.id);
   if(found) found.qty++; else cart.push({id:p.id,qty:1});
-  saveCart(); openCart(); closeModal();
+  saveCart(); closeModal(true); history.replaceState({jhony:'cart'}, '', '#carrito'); openCart();
 }
 function cartDetails(){return cart.map(x=>({item:x,p:products.find(p=>p.id===x.id)})).filter(x=>x.p);}
 function renderCart(){
@@ -130,8 +131,8 @@ function renderCart(){
   $('#cartEmpty').classList.toggle('hidden',rows.length>0); $('#checkoutBtn').disabled=rows.length===0;
   $$('#cartItems [data-action]').forEach(b=>b.onclick=()=>{const id=Number(b.dataset.id),a=b.dataset.action,found=cart.find(x=>x.id===id); if(a==='remove') cart=cart.filter(x=>x.id!==id); else if(found){found.qty+=a==='plus'?1:-1;if(found.qty<1)cart=cart.filter(x=>x.id!==id);} saveCart();});
 }
-function openCart(){$('#cartDrawer').classList.add('open');document.body.classList.add('no-scroll');$('#customerForm').classList.add('hidden');$('#cartItems').classList.remove('hidden');$('#cartDrawer').setAttribute('aria-hidden','false');}
-function closeCart(){$('#cartDrawer').classList.remove('open');document.body.classList.remove('no-scroll');$('#cartDrawer').setAttribute('aria-hidden','true');}
+function openCart(){ $('#cartDrawer').classList.add('open'); document.body.classList.add('no-scroll'); $('#customerForm').classList.add('hidden'); $('#cartItems').classList.remove('hidden'); $('#cartDrawer').setAttribute('aria-hidden','false'); if (!history.state || history.state.jhony !== 'cart') history.pushState({jhony:'cart'}, '', '#carrito'); }
+function closeCart(fromHistory=false){ $('#cartDrawer').classList.remove('open'); document.body.classList.remove('no-scroll'); $('#cartDrawer').setAttribute('aria-hidden','true'); if(!fromHistory && history.state && history.state.jhony==='cart') history.back(); }
 function checkout(){if(!cart.length)return;$('#cartItems').classList.add('hidden');$('#cartEmpty').classList.add('hidden');$('#customerForm').classList.remove('hidden');$('#checkoutBtn').parentElement.classList.add('hidden');}
 function backToCart(){$('#customerForm').classList.add('hidden');$('#cartItems').classList.remove('hidden');$('#checkoutBtn').parentElement.classList.remove('hidden');$('#cartEmpty').classList.toggle('hidden',cart.length>0);}
 function submitOrder(e){
@@ -142,7 +143,7 @@ function submitOrder(e){
   window.open(wa(text),'_blank');
 }
 
-function closeModal(){ $('#productModal').classList.remove('open'); document.body.classList.remove('no-scroll'); }
+function closeModal(fromHistory=false){ $('#productModal').classList.remove('open'); document.body.classList.remove('no-scroll'); if(!fromHistory && history.state && history.state.jhony==='product') history.back(); }
 
 renderBrands(); renderProducts(products);
 $('#year').textContent=new Date().getFullYear();
@@ -161,5 +162,24 @@ $('#searchInput').addEventListener('input',e=>{const q=e.target.value.toLowerCas
 $$('.search-hint button').forEach(b=>b.onclick=()=>{ $('#searchInput').value=b.dataset.search; $('#searchInput').dispatchEvent(new Event('input')); });
 
 renderCart();
-$('#cartBtn').onclick=openCart; $('#cartClose').onclick=closeCart; $('#cartBackdrop').onclick=closeCart;
+$('#cartBtn').onclick=openCart; $('#cartClose').onclick=()=>closeCart(); $('#cartBackdrop').onclick=()=>closeCart();
 $('#checkoutBtn').onclick=checkout; $('#backCart').onclick=backToCart; $('#customerForm').onsubmit=submitOrder;
+
+// Navegacion: el boton Atrás del navegador cierra primero el producto o el carrito.
+window.addEventListener('popstate', (e) => {
+  if (e.state && e.state.jhony === 'product') {
+    if (!document.querySelector('#productModal').classList.contains('open')) {
+      const p = products.find(x => x.id === Number(e.state.id));
+      if (p) openProduct(p);
+    }
+    if (document.querySelector('#cartDrawer').classList.contains('open')) closeCart(true);
+    return;
+  }
+  if (e.state && e.state.jhony === 'cart') {
+    if (document.querySelector('#productModal').classList.contains('open')) closeModal(true);
+    if (!document.querySelector('#cartDrawer').classList.contains('open')) openCart();
+    return;
+  }
+  if (document.querySelector('#productModal').classList.contains('open')) closeModal(true);
+  if (document.querySelector('#cartDrawer').classList.contains('open')) closeCart(true);
+});
