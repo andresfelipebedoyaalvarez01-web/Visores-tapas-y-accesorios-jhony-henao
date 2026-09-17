@@ -1490,6 +1490,47 @@ window.CATALOGO = {
       "ahumado"
     ],
     "description": "Visor para Bajaj Pulsar 180. Disponible en varios colores. Precio: $28.000."
+  },
+  {
+    "id": 60,
+    "name": "Visor Discover 135",
+    "variant": "Varios colores",
+    "price": 28000,
+    "image": "visor-discover-135-amarillo-neon.jpeg",
+    "images": [
+      "visor-discover-135-amarillo-neon.jpeg",
+      "visor-discover-135-ahumado.jpeg",
+      "visor-discover-135-rojo.jpeg"
+    ],
+    "category": "Visores",
+    "brands": ["Bajaj"],
+    "models": ["Discover 135"],
+    "tags": [
+      "visor", "discover", "discover 135", "135", "bajaj",
+      "amarillo neon", "ahumado", "rojo"
+    ],
+    "description": "Visor para Bajaj Discover 135. Disponible en varios colores. Precio: $28.000."
+  },
+  {
+    "id": 61,
+    "name": "Visor Discover 100/125",
+    "variant": "Varios colores",
+    "price": 28000,
+    "image": "visor-discover-100-125-azul.jpeg",
+    "images": [
+      "visor-discover-100-125-azul.jpeg",
+      "visor-discover-100-125-amarillo-neon.jpeg",
+      "visor-discover-100-125-rojo.jpeg",
+      "visor-discover-100-125-negro.jpeg"
+    ],
+    "category": "Visores",
+    "brands": ["Bajaj"],
+    "models": ["Discover 100/125"],
+    "tags": [
+      "visor", "discover", "discover 100", "discover 125", "discover 100/125", "100", "125", "bajaj",
+      "azul", "amarillo neon", "rojo", "negro"
+    ],
+    "description": "Visor para Bajaj Discover 100/125. Disponible en varios colores. Precio: $28.000."
   }
 ]
 };
