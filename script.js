@@ -97,7 +97,9 @@ function renderProducts(list){
   $('#products').innerHTML=list.map(p=>`<article class="product" data-id="${p.id}"><div class="product-image"><img src="${p.image}" alt="${p.name} ${p.variant}" loading="lazy"><span class="tag">DISPONIBLE</span></div><div class="product-info"><span class="product-type">${p.category.toUpperCase()}</span><h3>${p.name}</h3><small>${p.variant}</small><div class="product-bottom"><strong>$${money(p.price)}</strong><button type="button">VER PRODUCTO →</button></div></div></article>`).join('');
   $('#emptyState').classList.toggle('hidden',list.length>0); $$('.product').forEach(x=>x.onclick=()=>openProduct(products.find(p=>p.id==x.dataset.id)));
 }
+let activeProduct=null;
 function openProduct(p){
+  activeProduct=p;
   const images=(p.images&&p.images.length?p.images:[p.image]).filter(Boolean);
   $('#modalImage').src=images[0]; $('#modalImage').alt=p.name;
   $('#modalName').textContent=p.variant?`${p.name} — ${p.variant}`:p.name;
@@ -108,8 +110,37 @@ function openProduct(p){
   $('#modalTags').innerHTML=(p.tags||[]).map(t=>`<span>${t}</span>`).join('');
   $('#modalThumbs').innerHTML=images.map((src,i)=>`<button class="modal-thumb ${i===0?'active':''}" type="button" data-image="${src}" aria-label="Ver foto ${i+1}"><img src="${src}" alt="${p.name} foto ${i+1}"></button>`).join('');
   $$('.modal-thumb').forEach((thumb,i)=>thumb.onclick=(e)=>{e.stopPropagation(); $('#modalImage').src=thumb.dataset.image; $$('.modal-thumb').forEach(t=>t.classList.remove('active')); thumb.classList.add('active');});
-  $('#modalWhatsapp').href=wa(`Hola, JHONY HENAO. Estoy interesado en ${p.name}${p.variant?` — ${p.variant}`:''} por $${money(p.price)}. ¿Me confirman disponibilidad y envío?`);
-  $('#productModal').classList.add('open'); document.body.classList.add('no-scroll');
+  $('#addToCart').onclick=()=>addToCart(p);
+}
+const CART_KEY='jhony_henao_cart_v1';
+let cart=JSON.parse(localStorage.getItem(CART_KEY)||'[]');
+function saveCart(){localStorage.setItem(CART_KEY,JSON.stringify(cart));renderCart();}
+function addToCart(p){
+  const found=cart.find(x=>x.id===p.id);
+  if(found) found.qty++; else cart.push({id:p.id,qty:1});
+  saveCart(); openCart(); closeModal();
+}
+function cartDetails(){return cart.map(x=>({item:x,p:products.find(p=>p.id===x.id)})).filter(x=>x.p);}
+function renderCart(){
+  const rows=cartDetails(); const count=rows.reduce((a,x)=>a+x.item.qty,0); const total=rows.reduce((a,x)=>a+x.p.price*x.item.qty,0);
+  $('#cartCount').textContent=count; $('#cartTotal').textContent='$'+money(total);
+  $('#cartItems').innerHTML=rows.map(({item,p})=>`<div class="cart-item"><img src="${p.image}" alt="${p.name}"><div><h4>${p.name}</h4><small>${p.variant||''}</small><strong>$${money(p.price*item.qty)}</strong><div class="qty"><button data-action="minus" data-id="${p.id}">−</button><span>${item.qty}</span><button data-action="plus" data-id="${p.id}">+</button></div></div><button class="remove-item" data-action="remove" data-id="${p.id}">Quitar</button></div>`).join('');
+  $('#cartEmpty').classList.toggle('hidden',rows.length>0); $('#checkoutBtn').disabled=rows.length===0;
+  $$('#cartItems [data-action]').forEach(b=>b.onclick=()=>{const id=Number(b.dataset.id),a=b.dataset.action,found=cart.find(x=>x.id===id); if(a==='remove') cart=cart.filter(x=>x.id!==id); else if(found){found.qty+=a==='plus'?1:-1;if(found.qty<1)cart=cart.filter(x=>x.id!==id);} saveCart();});
+}
+function openCart(){$('#cartDrawer').classList.add('open');document.body.classList.add('no-scroll');$('#customerForm').classList.add('hidden');$('#cartItems').classList.remove('hidden');$('#cartDrawer').setAttribute('aria-hidden','false');}
+function closeCart(){$('#cartDrawer').classList.remove('open');document.body.classList.remove('no-scroll');$('#cartDrawer').setAttribute('aria-hidden','true');}
+function checkout(){if(!cart.length)return;$('#cartItems').classList.add('hidden');$('#cartEmpty').classList.add('hidden');$('#customerForm').classList.remove('hidden');$('#checkoutBtn').parentElement.classList.add('hidden');}
+function backToCart(){$('#customerForm').classList.add('hidden');$('#cartItems').classList.remove('hidden');$('#checkoutBtn').parentElement.classList.remove('hidden');$('#cartEmpty').classList.toggle('hidden',cart.length>0);}
+function submitOrder(e){
+  e.preventDefault(); const rows=cartDetails(); if(!rows.length)return;
+  const name=$('#customerName').value.trim(),phone=$('#customerPhone').value.trim(),city=$('#customerCity').value.trim(),address=$('#customerAddress').value.trim(),note=$('#customerNote').value.trim();
+  let total=0, lines=rows.map(({item,p})=>{const sub=p.price*item.qty;total+=sub;return `• ${p.name}${p.variant?` — ${p.variant}`:''} x${item.qty}: $${money(sub)}`;}).join('\n');
+  const text=`Hola, JHONY HENAO. Quiero realizar este pedido:\n\n${lines}\n\nTOTAL: $${money(total)} COP\n\nDATOS DEL CLIENTE\nNombre: ${name}\nCelular: ${phone}\nCiudad: ${city}\nDirección: ${address}${note?`\nNota: ${note}`:''}\n\nPor favor confirmen disponibilidad, valor del envío y forma de pago.`;
+  window.open(wa(text),'_blank');
+}
+
+function closeModal(){  $('#productModal').classList.add('open'); document.body.classList.add('no-scroll');
 }
 function closeModal(){ $('#productModal').classList.remove('open'); document.body.classList.remove('no-scroll'); }
 
