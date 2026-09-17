@@ -1,0 +1,10 @@
+JHONY HENAO — CATALOGO
+
+Para agregar productos en el futuro:
+1. Pon las fotos dentro de la carpeta imagenes.
+2. Abre productos.js.
+3. Agrega un objeto dentro de PRODUCTS con nombre, variante, precio, categoria, marca, modelo, descripcion e images.
+4. Un producto puede tener varias fotos dentro de images.
+5. No es necesario crear carpetas por producto ni por categoria.
+
+IMPORTANTE: index.html, style.css y script.js son la estructura de la pagina; para productos nuevos normalmente solo necesitas productos.js + las fotos en imagenes.
