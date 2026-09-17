@@ -666,7 +666,7 @@ window.CATALOGO = {
     "images": [
       "guardabarros-szr-150-azul.jpg"
     ],
-    "category": "Accesorios",
+    "category": "Tapas",
     "brands": [
       "Yamaha"
     ],
@@ -690,7 +690,7 @@ window.CATALOGO = {
     "images": [
       "guardabarros-szr-150-rojo.png"
     ],
-    "category": "Accesorios",
+    "category": "Tapas",
     "brands": [
       "Yamaha"
     ],
@@ -714,7 +714,7 @@ window.CATALOGO = {
     "images": [
       "guardabarros-szr-150-plata.jpg"
     ],
-    "category": "Accesorios",
+    "category": "Tapas",
     "brands": [
       "Yamaha"
     ],
@@ -738,7 +738,7 @@ window.CATALOGO = {
     "images": [
       "guardabarros-szr-150-gris.jpg"
     ],
-    "category": "Accesorios",
+    "category": "Tapas",
     "brands": [
       "Yamaha"
     ],
@@ -762,7 +762,7 @@ window.CATALOGO = {
     "images": [
       "guardabarros-szr-150-blanco.png"
     ],
-    "category": "Accesorios",
+    "category": "Tapas",
     "brands": [
       "Yamaha"
     ],
@@ -786,7 +786,7 @@ window.CATALOGO = {
     "images": [
       "guardabarros-szr-150-verde.png"
     ],
-    "category": "Accesorios",
+    "category": "Tapas",
     "brands": [
       "Yamaha"
     ],
@@ -810,7 +810,7 @@ window.CATALOGO = {
     "images": [
       "guardabarros-szr-150-negro.png"
     ],
-    "category": "Accesorios",
+    "category": "Tapas",
     "brands": [
       "Yamaha"
     ],
@@ -906,7 +906,7 @@ window.CATALOGO = {
     "images": [
       "carenaje-szr-150-.jpg"
     ],
-    "category": "Accesorios",
+    "category": "Tapas",
     "brands": [
       "Yamaha"
     ],
@@ -929,7 +929,7 @@ window.CATALOGO = {
     "images": [
       "protector-mofle-szr.JPG"
     ],
-    "category": "Accesorios",
+    "category": "Tapas",
     "brands": [
       "Yamaha"
     ],
@@ -953,7 +953,7 @@ window.CATALOGO = {
     "images": [
       "protector-mofle-trasero szr.jpg"
     ],
-    "category": "Accesorios",
+    "category": "Tapas",
     "brands": [
       "Yamaha"
     ],
@@ -1317,7 +1317,7 @@ window.CATALOGO = {
     "images": [
       "protector-mofle-nmax-v2-v3.jpeg"
     ],
-    "category": "Accesorios",
+    "category": "Tapas",
     "brands": [
       "Yamaha"
     ],
@@ -1348,7 +1348,7 @@ window.CATALOGO = {
     "images": [
       "protector-mofle-nmax-v1.jpeg"
     ],
-    "category": "Accesorios",
+    "category": "Tapas",
     "brands": [
       "Yamaha"
     ],
@@ -1374,7 +1374,7 @@ window.CATALOGO = {
       "guardabarros-libero-125-azul.png",
       "guardabarros-libero-125-rojo.png"
     ],
-    "category": "Accesorios",
+    "category": "Tapas",
     "brands": [
       "Yamaha"
     ],
