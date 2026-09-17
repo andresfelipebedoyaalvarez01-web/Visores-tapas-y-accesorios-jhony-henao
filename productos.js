@@ -1425,6 +1425,71 @@ window.CATALOGO = {
       "amarillo neon"
     ],
     "description": "Visor para Bajaj Boxer CT. Disponible en varios colores. Precio: $28.000."
+  },
+
+  {
+    "id": 58,
+    "name": "Visor Pulsar 135",
+    "variant": "Varios colores",
+    "price": 28000,
+    "image": "visor-pulsar-135-rojo.jpeg",
+    "images": [
+      "visor-pulsar-135-rojo.jpeg",
+      "visor-pulsar-135-ahumado.jpeg",
+      "visor-pulsar-135-azul.jpeg",
+      "visor-pulsar-135-amarillo-neon.jpeg"
+    ],
+    "category": "Visores",
+    "brands": [
+      "Bajaj"
+    ],
+    "models": [
+      "Pulsar 135"
+    ],
+    "tags": [
+      "visor",
+      "pulsar",
+      "pulsar 135",
+      "135",
+      "bajaj",
+      "rojo",
+      "ahumado",
+      "azul",
+      "amarillo neon"
+    ],
+    "description": "Visor para Bajaj Pulsar 135. Disponible en varios colores. Precio: $28.000."
+  },
+  {
+    "id": 59,
+    "name": "Visor Pulsar 180",
+    "variant": "Varios colores",
+    "price": 28000,
+    "image": "visor-pulsar-180-azul.jpeg",
+    "images": [
+      "visor-pulsar-180-azul.jpeg",
+      "visor-pulsar-180-rojo.jpeg",
+      "visor-pulsar-180-amarillo-neon.jpeg",
+      "visor-pulsar-180-ahumado.jpeg"
+    ],
+    "category": "Visores",
+    "brands": [
+      "Bajaj"
+    ],
+    "models": [
+      "Pulsar 180"
+    ],
+    "tags": [
+      "visor",
+      "pulsar",
+      "pulsar 180",
+      "180",
+      "bajaj",
+      "azul",
+      "rojo",
+      "amarillo neon",
+      "ahumado"
+    ],
+    "description": "Visor para Bajaj Pulsar 180. Disponible en varios colores. Precio: $28.000."
   }
 ]
 };
