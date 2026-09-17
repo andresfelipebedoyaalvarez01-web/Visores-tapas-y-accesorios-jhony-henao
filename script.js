@@ -110,7 +110,9 @@ function openProduct(p){
   $('#modalTags').innerHTML=(p.tags||[]).map(t=>`<span>${t}</span>`).join('');
   $('#modalThumbs').innerHTML=images.map((src,i)=>`<button class="modal-thumb ${i===0?'active':''}" type="button" data-image="${src}" aria-label="Ver foto ${i+1}"><img src="${src}" alt="${p.name} foto ${i+1}"></button>`).join('');
   $$('.modal-thumb').forEach((thumb,i)=>thumb.onclick=(e)=>{e.stopPropagation(); $('#modalImage').src=thumb.dataset.image; $$('.modal-thumb').forEach(t=>t.classList.remove('active')); thumb.classList.add('active');});
+  $('#modalWhatsapp').href=wa(`Hola, JHONY HENAO. Estoy interesado en ${p.name}${p.variant?` — ${p.variant}`:''} por $${money(p.price)}. ¿Me confirman disponibilidad y envío?`);
   $('#addToCart').onclick=()=>addToCart(p);
+  $('#productModal').classList.add('open'); document.body.classList.add('no-scroll');
 }
 const CART_KEY='jhony_henao_cart_v1';
 let cart=JSON.parse(localStorage.getItem(CART_KEY)||'[]');
@@ -140,8 +142,6 @@ function submitOrder(e){
   window.open(wa(text),'_blank');
 }
 
-function closeModal(){  $('#productModal').classList.add('open'); document.body.classList.add('no-scroll');
-}
 function closeModal(){ $('#productModal').classList.remove('open'); document.body.classList.remove('no-scroll'); }
 
 renderBrands(); renderProducts(products);
@@ -159,3 +159,7 @@ $('.search-toggle').onclick=()=>{ $('#searchInput').focus(); $('#buscar').scroll
 $('#clearSearch').onclick=()=>{ $('#searchInput').value=''; renderProducts(products); $('#productsTitle').textContent='PRODUCTOS DESTACADOS'; $('#productsSub').textContent='Explora nuestras piezas y accesorios disponibles.'; };
 $('#searchInput').addEventListener('input',e=>{const q=e.target.value.toLowerCase().trim(); if(!q){renderProducts(products);return;} const list=products.filter(p=>(p.name+' '+p.variant+' '+p.category+' '+p.brands.join(' ')+' '+p.models.join(' ')+' '+p.tags.join(' ')+' '+(p.description||'')).toLowerCase().includes(q)); $('#productsTitle').textContent=`RESULTADOS: ${e.target.value}`; $('#productsSub').textContent=`${list.length} producto(s) encontrado(s)`; renderProducts(list); $('#catalogo').scrollIntoView({behavior:'smooth',block:'start'});});
 $$('.search-hint button').forEach(b=>b.onclick=()=>{ $('#searchInput').value=b.dataset.search; $('#searchInput').dispatchEvent(new Event('input')); });
+
+renderCart();
+$('#cartBtn').onclick=openCart; $('#cartClose').onclick=closeCart; $('#cartBackdrop').onclick=closeCart;
+$('#checkoutBtn').onclick=checkout; $('#backCart').onclick=backToCart; $('#customerForm').onsubmit=submitOrder;

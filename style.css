@@ -98,7 +98,6 @@
 @media(max-width:900px){.modal-thumbs{bottom:8px}.modal-thumb{width:52px;height:43px;flex-basis:52px}}
 @media(max-width:560px){.modal-thumbs{bottom:6px;gap:5px}.modal-thumb{width:45px;height:37px;flex-basis:45px}}
 
-
 /* ===== Ajustes móviles y carrito ===== */
 html,body{width:100%;max-width:100%;overflow-x:hidden}
 body{overscroll-behavior-x:none}
