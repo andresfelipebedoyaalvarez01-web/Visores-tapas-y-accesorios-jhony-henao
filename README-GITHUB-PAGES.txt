@@ -8,3 +8,4 @@ GitHub Pages - JHONY HENAO
 
 
 ACTUALIZACION: Se agregó el producto Visor NMAX V1 con 12 fotos y precio de $70.000.
+\nACTUALIZACIÓN VISUAL: esta versión usa una vista compacta del catálogo para que las fotos no queden tan largas hacia abajo. Se mantienen productos, fotos, precios, buscador, categorías y ventana de detalle.
