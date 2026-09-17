@@ -1392,7 +1392,39 @@ window.CATALOGO = {
       "rojo"
     ],
     "description": "Guardabarros para Yamaha Libero 125. Disponible en negro, azul y rojo. Precio: $60.000."
+  },
+  {
+    "id": 57,
+    "name": "Visor Boxer CT",
+    "variant": "Varios colores",
+    "price": 28000,
+    "image": "visor-boxer-ct-negro.jpeg",
+    "images": [
+      "visor-boxer-ct-negro.jpeg",
+      "visor-boxer-ct-rojo.jpeg",
+      "visor-boxer-ct-azul.jpeg",
+      "visor-boxer-ct-amarillo-neon.jpeg",
+      "visor-boxer-ct-amarillo.jpeg"
+    ],
+    "category": "Visores",
+    "brands": [
+      "Bajaj"
+    ],
+    "models": [
+      "Boxer CT"
+    ],
+    "tags": [
+      "visor",
+      "boxer",
+      "boxer ct",
+      "bajaj",
+      "negro",
+      "rojo",
+      "azul",
+      "amarillo",
+      "amarillo neon"
+    ],
+    "description": "Visor para Bajaj Boxer CT. Disponible en varios colores. Precio: $28.000."
   }
-
 ]
 };
