@@ -971,22 +971,11 @@ window.CATALOGO = {
   {
     "id": 42,
     "name": "Visor NMAX V1",
-    "variant": "Varios colores y acabados",
-    "price": 70000,
-    "image": "visor-nmax-v1-ahumado.jpg",
+    "variant": "Ahumado 2",
+    "price": 60000,
+    "image": "visor-nmax-v1-ahumado-2.jpg",
     "images": [
-      "visor-nmax-v1-ahumado-2.jpg",
-      "visor-nmax-v1-ahumado.jpg",
-      "visor-nmax-v1-amarillo.jpg",
-      "visor-nmax-v1-azul.jpg",
-      "visor-nmax-v1-camaleon.jpg",
-      "visor-nmax-v1-morado-2.jpg",
-      "visor-nmax-v1-morado.jpg",
-      "visor-nmax-v1-naranja-2.jpg",
-      "visor-nmax-v1-naranja.jpg",
-      "visor-nmax-v1-negro-mate.jpg",
-      "visor-nmax-v1-rojo.jpg",
-      "visor-nmax-v1-transparente.jpg"
+      "visor-nmax-v1-ahumado-2.jpg"
     ],
     "category": "Visores",
     "brands": [
@@ -998,9 +987,11 @@ window.CATALOGO = {
     "tags": [
       "visor",
       "nmax v1",
-      "yamaha"
+      "yamaha",
+      "ahumado 2"
     ],
-    "description": "Visor para Yamaha NMAX V1. Disponible en diferentes colores y acabados. Precio: $70.000."
+    "description": "Visor para Yamaha NMAX V1. Color/Acabado: Ahumado 2. Precio: $60.000.",
+    "galleryGroup": "nmax-v1"
   },
   {
     "id": 43,
@@ -1363,7 +1354,8 @@ window.CATALOGO = {
       "yamaha"
     ],
     "description": "Protector de mofle para Yamaha NMAX V1. Precio: $40.000."
-  }  ,{
+  },
+  {
     "id": 56,
     "name": "Guardabarros Libero 125",
     "variant": "Varios colores",
@@ -1426,7 +1418,6 @@ window.CATALOGO = {
     ],
     "description": "Visor para Bajaj Boxer CT. Disponible en varios colores. Precio: $28.000."
   },
-
   {
     "id": 58,
     "name": "Visor Pulsar 135",
@@ -1503,11 +1494,21 @@ window.CATALOGO = {
       "visor-discover-135-rojo.jpeg"
     ],
     "category": "Visores",
-    "brands": ["Bajaj"],
-    "models": ["Discover 135"],
+    "brands": [
+      "Bajaj"
+    ],
+    "models": [
+      "Discover 135"
+    ],
     "tags": [
-      "visor", "discover", "discover 135", "135", "bajaj",
-      "amarillo neon", "ahumado", "rojo"
+      "visor",
+      "discover",
+      "discover 135",
+      "135",
+      "bajaj",
+      "amarillo neon",
+      "ahumado",
+      "rojo"
     ],
     "description": "Visor para Bajaj Discover 135. Disponible en varios colores. Precio: $28.000."
   },
@@ -1524,13 +1525,303 @@ window.CATALOGO = {
       "visor-discover-100-125-negro.jpeg"
     ],
     "category": "Visores",
-    "brands": ["Bajaj"],
-    "models": ["Discover 100/125"],
-    "tags": [
-      "visor", "discover", "discover 100", "discover 125", "discover 100/125", "100", "125", "bajaj",
-      "azul", "amarillo neon", "rojo", "negro"
+    "brands": [
+      "Bajaj"
     ],
-    "description": "Visor para Bajaj Discover 100/125. Disponible en varios colores. Precio: $28.000."
+    "models": [
+      "Discover 100",
+      "Discover 125"
+    ],
+    "tags": [
+      "visor",
+      "discover",
+      "discover 100",
+      "discover 125",
+      "discover 100/125",
+      "100",
+      "125",
+      "bajaj",
+      "azul",
+      "amarillo neon",
+      "rojo",
+      "negro"
+    ],
+    "description": "Visor para Bajaj Discover 100 y Discover 125. Disponible en varios colores. Precio: $28.000."
+  },
+  {
+    "id": 62,
+    "name": "Visor NMAX V1",
+    "variant": "Ahumado",
+    "price": 60000,
+    "image": "visor-nmax-v1-ahumado.jpg",
+    "images": [
+      "visor-nmax-v1-ahumado.jpg"
+    ],
+    "category": "Visores",
+    "brands": [
+      "Yamaha"
+    ],
+    "models": [
+      "NMAX V1"
+    ],
+    "tags": [
+      "visor",
+      "nmax v1",
+      "yamaha",
+      "ahumado"
+    ],
+    "description": "Visor para Yamaha NMAX V1. Color/Acabado: Ahumado. Precio: $60.000.",
+    "galleryGroup": "nmax-v1"
+  },
+  {
+    "id": 63,
+    "name": "Visor NMAX V1",
+    "variant": "Amarillo",
+    "price": 60000,
+    "image": "visor-nmax-v1-amarillo.jpg",
+    "images": [
+      "visor-nmax-v1-amarillo.jpg"
+    ],
+    "category": "Visores",
+    "brands": [
+      "Yamaha"
+    ],
+    "models": [
+      "NMAX V1"
+    ],
+    "tags": [
+      "visor",
+      "nmax v1",
+      "yamaha",
+      "amarillo"
+    ],
+    "description": "Visor para Yamaha NMAX V1. Color/Acabado: Amarillo. Precio: $60.000.",
+    "galleryGroup": "nmax-v1"
+  },
+  {
+    "id": 64,
+    "name": "Visor NMAX V1",
+    "variant": "Azul",
+    "price": 60000,
+    "image": "visor-nmax-v1-azul.jpg",
+    "images": [
+      "visor-nmax-v1-azul.jpg"
+    ],
+    "category": "Visores",
+    "brands": [
+      "Yamaha"
+    ],
+    "models": [
+      "NMAX V1"
+    ],
+    "tags": [
+      "visor",
+      "nmax v1",
+      "yamaha",
+      "azul"
+    ],
+    "description": "Visor para Yamaha NMAX V1. Color/Acabado: Azul. Precio: $60.000.",
+    "galleryGroup": "nmax-v1"
+  },
+  {
+    "id": 65,
+    "name": "Visor NMAX V1",
+    "variant": "Tornasol",
+    "price": 80000,
+    "image": "visor-nmax-v1-camaleon.jpg",
+    "images": [
+      "visor-nmax-v1-camaleon.jpg"
+    ],
+    "category": "Visores",
+    "brands": [
+      "Yamaha"
+    ],
+    "models": [
+      "NMAX V1"
+    ],
+    "tags": [
+      "visor",
+      "nmax v1",
+      "yamaha",
+      "tornasol"
+    ],
+    "description": "Visor para Yamaha NMAX V1. Color/Acabado: Tornasol. Precio: $80.000.",
+    "galleryGroup": "nmax-v1"
+  },
+  {
+    "id": 66,
+    "name": "Visor NMAX V1",
+    "variant": "Morado 2",
+    "price": 60000,
+    "image": "visor-nmax-v1-morado-2.jpg",
+    "images": [
+      "visor-nmax-v1-morado-2.jpg"
+    ],
+    "category": "Visores",
+    "brands": [
+      "Yamaha"
+    ],
+    "models": [
+      "NMAX V1"
+    ],
+    "tags": [
+      "visor",
+      "nmax v1",
+      "yamaha",
+      "morado 2"
+    ],
+    "description": "Visor para Yamaha NMAX V1. Color/Acabado: Morado 2. Precio: $60.000.",
+    "galleryGroup": "nmax-v1"
+  },
+  {
+    "id": 67,
+    "name": "Visor NMAX V1",
+    "variant": "Morado",
+    "price": 60000,
+    "image": "visor-nmax-v1-morado.jpg",
+    "images": [
+      "visor-nmax-v1-morado.jpg"
+    ],
+    "category": "Visores",
+    "brands": [
+      "Yamaha"
+    ],
+    "models": [
+      "NMAX V1"
+    ],
+    "tags": [
+      "visor",
+      "nmax v1",
+      "yamaha",
+      "morado"
+    ],
+    "description": "Visor para Yamaha NMAX V1. Color/Acabado: Morado. Precio: $60.000.",
+    "galleryGroup": "nmax-v1"
+  },
+  {
+    "id": 68,
+    "name": "Visor NMAX V1",
+    "variant": "Naranja 2",
+    "price": 60000,
+    "image": "visor-nmax-v1-naranja-2.jpg",
+    "images": [
+      "visor-nmax-v1-naranja-2.jpg"
+    ],
+    "category": "Visores",
+    "brands": [
+      "Yamaha"
+    ],
+    "models": [
+      "NMAX V1"
+    ],
+    "tags": [
+      "visor",
+      "nmax v1",
+      "yamaha",
+      "naranja 2"
+    ],
+    "description": "Visor para Yamaha NMAX V1. Color/Acabado: Naranja 2. Precio: $60.000.",
+    "galleryGroup": "nmax-v1"
+  },
+  {
+    "id": 69,
+    "name": "Visor NMAX V1",
+    "variant": "Naranja",
+    "price": 60000,
+    "image": "visor-nmax-v1-naranja.jpg",
+    "images": [
+      "visor-nmax-v1-naranja.jpg"
+    ],
+    "category": "Visores",
+    "brands": [
+      "Yamaha"
+    ],
+    "models": [
+      "NMAX V1"
+    ],
+    "tags": [
+      "visor",
+      "nmax v1",
+      "yamaha",
+      "naranja"
+    ],
+    "description": "Visor para Yamaha NMAX V1. Color/Acabado: Naranja. Precio: $60.000.",
+    "galleryGroup": "nmax-v1"
+  },
+  {
+    "id": 70,
+    "name": "Visor NMAX V1",
+    "variant": "Negro mate",
+    "price": 70000,
+    "image": "visor-nmax-v1-negro-mate.jpg",
+    "images": [
+      "visor-nmax-v1-negro-mate.jpg"
+    ],
+    "category": "Visores",
+    "brands": [
+      "Yamaha"
+    ],
+    "models": [
+      "NMAX V1"
+    ],
+    "tags": [
+      "visor",
+      "nmax v1",
+      "yamaha",
+      "negro mate"
+    ],
+    "description": "Visor para Yamaha NMAX V1. Color/Acabado: Negro mate. Precio: $70.000.",
+    "galleryGroup": "nmax-v1"
+  },
+  {
+    "id": 71,
+    "name": "Visor NMAX V1",
+    "variant": "Rojo",
+    "price": 60000,
+    "image": "visor-nmax-v1-rojo.jpg",
+    "images": [
+      "visor-nmax-v1-rojo.jpg"
+    ],
+    "category": "Visores",
+    "brands": [
+      "Yamaha"
+    ],
+    "models": [
+      "NMAX V1"
+    ],
+    "tags": [
+      "visor",
+      "nmax v1",
+      "yamaha",
+      "rojo"
+    ],
+    "description": "Visor para Yamaha NMAX V1. Color/Acabado: Rojo. Precio: $60.000.",
+    "galleryGroup": "nmax-v1"
+  },
+  {
+    "id": 72,
+    "name": "Visor NMAX V1",
+    "variant": "Transparente",
+    "price": 60000,
+    "image": "visor-nmax-v1-transparente.jpg",
+    "images": [
+      "visor-nmax-v1-transparente.jpg"
+    ],
+    "category": "Visores",
+    "brands": [
+      "Yamaha"
+    ],
+    "models": [
+      "NMAX V1"
+    ],
+    "tags": [
+      "visor",
+      "nmax v1",
+      "yamaha",
+      "transparente"
+    ],
+    "description": "Visor para Yamaha NMAX V1. Color/Acabado: Transparente. Precio: $60.000.",
+    "galleryGroup": "nmax-v1"
   }
 ]
 };
